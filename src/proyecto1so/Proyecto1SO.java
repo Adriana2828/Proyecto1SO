@@ -10,10 +10,27 @@ package proyecto1so;
  * @author dearf
  */
 public class Proyecto1SO {
-   
+ 
+    private Interfaz I;
+    
+
+    /**
+     * @param args the command line arguments
+     */
+
+    /**
+     *
+     */
+    public Proyecto1SO() {
+
+     
+    }
+
     public static void main(String[] args) {
         Interfaz I=new Interfaz();
         I.Go();
+        
+       
     }
     
 }

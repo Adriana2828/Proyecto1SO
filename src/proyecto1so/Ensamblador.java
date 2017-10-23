@@ -6,15 +6,6 @@
 package proyecto1so;
 
 
-public class Proyecto1SO {
- 
-    private Interfaz I;
- 
-    public static void main(String[] args) {
-        Interfaz I=new Interfaz();
-        I.Go();
-        
-       
-    }
+public class Ensamblador {
     
 }

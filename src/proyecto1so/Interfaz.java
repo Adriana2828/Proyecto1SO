@@ -167,29 +167,29 @@ public class Interfaz extends JFrame implements ActionListener {
 		textarea51.setLineWrap(true);
 		textarea51.setWrapStyleWord(true);
                 textarea51.setFont(new Font("Arial Bold", Font.BOLD, 14));
-                textarea51.setBackground(Color.ORANGE);
+                textarea51.setBackground(Color.white);
                 textarea51.setBorder(BorderFactory.createLineBorder(Color.black));
-                textarea51.setForeground(Color.BLUE);
-                textarea51.setBackground(Color.ORANGE);
+                textarea51.setForeground(Color.white);
+                textarea51.setBackground(rojoOscuro);
                 textarea61.setEditable(true);
 		textarea61.setLineWrap(true);
 		textarea61.setWrapStyleWord(true);
-                textarea61.setBackground(Color.ORANGE);
+                textarea61.setBackground(rojoOscuro);
                 textarea61.setFont(new Font("Arial Bold", Font.BOLD, 14));
                 textarea61.setBorder(BorderFactory.createLineBorder(Color.black));
-                textarea61.setForeground(Color.BLUE);
-                textarea61.setBackground(Color.ORANGE);
+                textarea61.setForeground(Color.white);
+                textarea61.setBackground(rojoOscuro);
                 textarea71.setEditable(true);
 		textarea71.setLineWrap(true);
-                textarea71.setForeground(Color.BLUE);
-                textarea71.setBackground(Color.ORANGE);
+                textarea71.setForeground(Color.white);
+                textarea71.setBackground(rojoOscuro);
 		textarea71.setWrapStyleWord(true);
                 textarea71.setFont(new Font("Arial Bold", Font.BOLD, 14));
                 textarea71.setBorder(BorderFactory.createLineBorder(Color.black));
                 textarea81.setEditable(true);
 		textarea81.setLineWrap(true);
-                textarea81.setForeground(Color.BLUE);
-                textarea81.setBackground(Color.ORANGE);
+                textarea81.setForeground(Color.white);
+                textarea81.setBackground(rojoOscuro);
 		textarea81.setWrapStyleWord(true);
                 textarea81.setFont(new Font("Arial Bold", Font.BOLD, 14));
                 textarea81.setBorder(BorderFactory.createLineBorder(Color.black));
@@ -244,11 +244,25 @@ public class Interfaz extends JFrame implements ActionListener {
                 boton4.setBorder(BorderFactory.createRaisedBevelBorder());
                 boton4.setBackground(Color.LIGHT_GRAY);
                 boton5.setBorder(BorderFactory.createRaisedBevelBorder());
-                boton5.setBackground(Color.BLUE);
+                boton5.setBackground(Color.RED);
                 boton5.setForeground(Color.WHITE);
                 boton6.setBorder(BorderFactory.createRaisedBevelBorder());
-                boton6.setBackground(Color.BLUE);
+                boton6.setBackground(Color.RED);
                 boton6.setForeground(Color.WHITE);
+                boton1.addActionListener(this);
+                boton2.addActionListener(this);
+                boton3.addActionListener(this);
+                boton4.addActionListener(this);
+                boton5.addActionListener(this);
+                boton6.addActionListener(this);
+                hire_Pcontroles.addActionListener(this);
+                fire_Pcontroles.addActionListener(this);
+                hire_Pconsolas.addActionListener(this);
+                fire_Pconsolas.addActionListener(this);
+                hire_Ppaquetes.addActionListener(this);
+                fire_Ppaquetes.addActionListener(this);
+                hire_ensamblador.addActionListener(this);
+                fire_ensamblador.addActionListener(this);
                 add(panelppal);
                 setVisible(true);
 	} 
@@ -256,9 +270,30 @@ public class Interfaz extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e){
 		Object src=e.getSource();
-		//test
-               
-		
+		if (src.equals(boton1)){
+                }
+                if (src.equals(boton2)){
+                }
+		if (src.equals(boton3)){
+                }
+                if (src.equals(boton4)){
+                }
+                if (src.equals(boton5)){
+                }
+                if (src.equals(boton6)){
+                }
+                if (src.equals(hire_Pconsolas)){
+                }
+                if (src.equals(fire_Pconsolas)){
+                }
+                if (src.equals(hire_Pcontroles)){
+                }
+                if (src.equals(fire_Pcontroles)){
+                }
+                if (src.equals(hire_Ppaquetes)){
+                }
+                if (src.equals(fire_Ppaquetes)){
+                }
         }
     
 }

@@ -96,203 +96,209 @@ public class Interfaz extends JFrame implements ActionListener {
     JButton fire_Ppaquetes=new JButton("Despedir");
     JButton hire_ensamblador=new JButton("Contratar");
     JButton fire_ensamblador=new JButton("Despedir");
-    
+//------------------------------------------------------------------------------
+    Fabrica F;
  
     public void Go() {
 		
 		setSize(600,400);
 	 	setResizable(true);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
-                textarea1.setEditable(true);
-		textarea1.setLineWrap(true);
-		textarea1.setWrapStyleWord(true);
-                textarea1.setFont(new Font("Arial ", Font.BOLD, 14));
-                textarea1.setBorder(BorderFactory.createLineBorder(Color.black));
-                textarea2.setEditable(true);
-		textarea2.setLineWrap(true);
-		textarea2.setWrapStyleWord(true);
-                textarea2.setFont(new Font("Arial ", Font.BOLD, 14));
-                textarea2.setBorder(BorderFactory.createLineBorder(Color.black));
-                textarea3.setEditable(true);
-		textarea3.setLineWrap(true);
-		textarea3.setWrapStyleWord(true);
-                textarea3.setFont(new Font("Arial ", Font.BOLD, 14));
-                textarea3.setBorder(BorderFactory.createLineBorder(Color.black));
-                textarea4.setEditable(true);
-		textarea4.setLineWrap(true);
-		textarea4.setWrapStyleWord(true);
-                textarea4.setFont(new Font("Arial ", Font.BOLD, 14));
-                textarea4.setBorder(BorderFactory.createLineBorder(Color.black));
-                textarea5.setEditable(true);
-		textarea5.setLineWrap(true);
-		textarea5.setWrapStyleWord(true);
-                textarea5.setFont(new Font("Arial ", Font.ITALIC, 14));
-                textarea5.setBorder(BorderFactory.createLineBorder(Color.black));
-                textarea6.setEditable(true);
-		textarea6.setLineWrap(true);
-		textarea6.setWrapStyleWord(true);
-                textarea6.setFont(new Font("Arial ", Font.ITALIC, 14));
-                textarea6.setBorder(BorderFactory.createLineBorder(Color.black));
-                textarea7.setEditable(true);
-		textarea7.setLineWrap(true);
-		textarea7.setWrapStyleWord(true);
-                textarea7.setFont(new Font("Arial ", Font.ITALIC, 14));
-                textarea7.setBorder(BorderFactory.createLineBorder(Color.black));
-                textarea8.setEditable(true);
-		textarea8.setLineWrap(true);
-		textarea8.setWrapStyleWord(true);
-                textarea8.setFont(new Font("Arial ", Font.ITALIC, 14));
-                textarea8.setBorder(BorderFactory.createLineBorder(Color.black));
-                textarea9.setEditable(true);
-		textarea9.setLineWrap(true);
-		textarea9.setWrapStyleWord(true);
-                textarea9.setFont(new Font("Arial ", Font.BOLD, 14));
-                textarea9.setBorder(BorderFactory.createLineBorder(Color.black));
-                textarea10.setEditable(true);
-		textarea10.setLineWrap(true);
-		textarea10.setWrapStyleWord(true);
-                textarea10.setFont(new Font("Arial ", Font.BOLD, 14));
-                textarea10.setBorder(BorderFactory.createLineBorder(Color.black));
-                textarea11.setEditable(true);
-		textarea11.setLineWrap(true);
-		textarea11.setWrapStyleWord(true);
-                textarea11.setFont(new Font("Arial ", Font.BOLD, 14));
-                textarea11.setBorder(BorderFactory.createLineBorder(Color.black));
-                textarea12.setEditable(true);
-		textarea12.setLineWrap(true);
-		textarea12.setWrapStyleWord(true);
-                textarea12.setFont(new Font("Arial ", Font.BOLD, 14));
-                textarea12.setBorder(BorderFactory.createLineBorder(Color.black));
-                textarea51.setEditable(true);
-		textarea51.setLineWrap(true);
-		textarea51.setWrapStyleWord(true);
-                textarea51.setFont(new Font("Arial Bold", Font.BOLD, 14));
-                textarea51.setBackground(Color.white);
-                textarea51.setBorder(BorderFactory.createLineBorder(Color.black));
-                textarea51.setForeground(Color.white);
-                textarea51.setBackground(rojoOscuro);
-                textarea61.setEditable(true);
-		textarea61.setLineWrap(true);
-		textarea61.setWrapStyleWord(true);
-                textarea61.setBackground(rojoOscuro);
-                textarea61.setFont(new Font("Arial Bold", Font.BOLD, 14));
-                textarea61.setBorder(BorderFactory.createLineBorder(Color.black));
-                textarea61.setForeground(Color.white);
-                textarea61.setBackground(rojoOscuro);
-                textarea71.setEditable(true);
-		textarea71.setLineWrap(true);
-                textarea71.setForeground(Color.white);
-                textarea71.setBackground(rojoOscuro);
-		textarea71.setWrapStyleWord(true);
-                textarea71.setFont(new Font("Arial Bold", Font.BOLD, 14));
-                textarea71.setBorder(BorderFactory.createLineBorder(Color.black));
-                textarea81.setEditable(true);
-		textarea81.setLineWrap(true);
-                textarea81.setForeground(Color.white);
-                textarea81.setBackground(rojoOscuro);
-		textarea81.setWrapStyleWord(true);
-                textarea81.setFont(new Font("Arial Bold", Font.BOLD, 14));
-                textarea81.setBorder(BorderFactory.createLineBorder(Color.black));
-                panelppal.setLayout(new BorderLayout());
-                panelppal.add(panelNorth,BorderLayout.PAGE_START);
-                panelppal.add(panelEast,BorderLayout.LINE_START);
-                panelppal.add(panelCenter,BorderLayout.CENTER);
-                panelppal.add(panelWest,BorderLayout.LINE_END);
-                panelppal.add(panelSouth,BorderLayout.PAGE_END);
-                panelNorth.setLayout(new  GridLayout(2,4));
-                panelNorth.add(scrollpane1);
-                panelNorth.add(scrollpane2);
-                panelNorth.add(scrollpane3);
-                panelNorth.add(scrollpane4);
+                this.textarea1.setEditable(true);
+		this.textarea1.setLineWrap(true);
+		this.textarea1.setWrapStyleWord(true);
+                this.textarea1.setFont(new Font("Arial ", Font.BOLD, 14));
+                this.textarea1.setBorder(BorderFactory.createLineBorder(Color.black));
+                this.textarea2.setEditable(true);
+		this.textarea2.setLineWrap(true);
+		this.textarea2.setWrapStyleWord(true);
+                this.textarea2.setFont(new Font("Arial ", Font.BOLD, 14));
+                this.textarea2.setBorder(BorderFactory.createLineBorder(Color.black));
+                this.textarea3.setEditable(true);
+		this.textarea3.setLineWrap(true);
+		this.textarea3.setWrapStyleWord(true);
+                this.textarea3.setFont(new Font("Arial ", Font.BOLD, 14));
+                this.textarea3.setBorder(BorderFactory.createLineBorder(Color.black));
+                this.textarea4.setEditable(true);
+		this.textarea4.setLineWrap(true);
+		this.textarea4.setWrapStyleWord(true);
+                this.textarea4.setFont(new Font("Arial ", Font.BOLD, 14));
+                this.textarea4.setBorder(BorderFactory.createLineBorder(Color.black));
+                this.textarea5.setEditable(true);
+		this.textarea5.setLineWrap(true);
+		this.textarea5.setWrapStyleWord(true);
+                this.textarea5.setFont(new Font("Arial ", Font.ITALIC, 14));
+                this.textarea5.setBorder(BorderFactory.createLineBorder(Color.black));
+                this.textarea6.setEditable(true);
+		this.textarea6.setLineWrap(true);
+		this.textarea6.setWrapStyleWord(true);
+                this.textarea6.setFont(new Font("Arial ", Font.ITALIC, 14));
+                this.textarea6.setBorder(BorderFactory.createLineBorder(Color.black));
+                this.textarea7.setEditable(true);
+		this.textarea7.setLineWrap(true);
+		this.textarea7.setWrapStyleWord(true);
+                this.textarea7.setFont(new Font("Arial ", Font.ITALIC, 14));
+                this.textarea7.setBorder(BorderFactory.createLineBorder(Color.black));
+                this.textarea8.setEditable(true);
+		this.textarea8.setLineWrap(true);
+		this.textarea8.setWrapStyleWord(true);
+                this.textarea8.setFont(new Font("Arial ", Font.ITALIC, 14));
+                this.textarea8.setBorder(BorderFactory.createLineBorder(Color.black));
+                this.textarea9.setEditable(true);
+		this.textarea9.setLineWrap(true);
+		this.textarea9.setWrapStyleWord(true);
+                this.textarea9.setFont(new Font("Arial ", Font.BOLD, 14));
+                this.textarea9.setBorder(BorderFactory.createLineBorder(Color.black));
+                this.textarea10.setEditable(true);
+		this.textarea10.setLineWrap(true);
+		this.textarea10.setWrapStyleWord(true);
+                this.textarea10.setFont(new Font("Arial ", Font.BOLD, 14));
+                this.textarea10.setBorder(BorderFactory.createLineBorder(Color.black));
+                this.textarea11.setEditable(true);
+		this.textarea11.setLineWrap(true);
+		this.textarea11.setWrapStyleWord(true);
+                this.textarea11.setFont(new Font("Arial ", Font.BOLD, 14));
+                this.textarea11.setBorder(BorderFactory.createLineBorder(Color.black));
+                this.textarea12.setEditable(true);
+		this.textarea12.setLineWrap(true);
+		this.textarea12.setWrapStyleWord(true);
+                this.textarea12.setFont(new Font("Arial ", Font.BOLD, 14));
+                this.textarea12.setBorder(BorderFactory.createLineBorder(Color.black));
+                this.textarea51.setEditable(true);
+		this.textarea51.setLineWrap(true);
+		this.textarea51.setWrapStyleWord(true);
+                this.textarea51.setFont(new Font("Arial Bold", Font.BOLD, 14));
+                this.textarea51.setBackground(Color.white);
+                this.textarea51.setBorder(BorderFactory.createLineBorder(Color.black));
+                this.textarea51.setForeground(Color.white);
+                this.textarea51.setBackground(rojoOscuro);
+                this.textarea61.setEditable(true);
+		this.textarea61.setLineWrap(true);
+		this.textarea61.setWrapStyleWord(true);
+                this.textarea61.setBackground(rojoOscuro);
+                this.textarea61.setFont(new Font("Arial Bold", Font.BOLD, 14));
+                this.textarea61.setBorder(BorderFactory.createLineBorder(Color.black));
+                this.textarea61.setForeground(Color.white);
+                this.textarea61.setBackground(rojoOscuro);
+                this.textarea71.setEditable(true);
+		this.textarea71.setLineWrap(true);
+                this.textarea71.setForeground(Color.white);
+                this.textarea71.setBackground(rojoOscuro);
+		this.textarea71.setWrapStyleWord(true);
+                this.textarea71.setFont(new Font("Arial Bold", Font.BOLD, 14));
+                this.textarea71.setBorder(BorderFactory.createLineBorder(Color.black));
+                this.textarea81.setEditable(true);
+		this.textarea81.setLineWrap(true);
+                this.textarea81.setForeground(Color.white);
+                this.textarea81.setBackground(rojoOscuro);
+		this.textarea81.setWrapStyleWord(true);
+                this.textarea81.setFont(new Font("Arial Bold", Font.BOLD, 14));
+                this.textarea81.setBorder(BorderFactory.createLineBorder(Color.black));
+                this.panelppal.setLayout(new BorderLayout());
+                this.panelppal.add(panelNorth,BorderLayout.PAGE_START);
+                this.panelppal.add(panelEast,BorderLayout.LINE_START);
+                this.panelppal.add(panelCenter,BorderLayout.CENTER);
+                this.panelppal.add(panelWest,BorderLayout.LINE_END);
+                this.panelppal.add(panelSouth,BorderLayout.PAGE_END);
+                this.panelNorth.setLayout(new  GridLayout(2,4));
+                this.panelNorth.add(scrollpane1);
+                this.panelNorth.add(scrollpane2);
+                this.panelNorth.add(scrollpane3);
+                this.panelNorth.add(scrollpane4);
              
-                panelNorth.add(boton1);
-                panelNorth.add(boton2);
-                panelNorth.add(boton3);
-                panelNorth.add(boton4);
-                panelEast.setLayout(new GridLayout(1,1));
-                panelSouth.setLayout(new GridLayout(9,2));
-                panelSouth.add(textarea9);
-                panelSouth.add(label1);
-                panelSouth.add(hire_Pcontroles);
-                panelSouth.add(fire_Pcontroles);
-                panelSouth.add(textarea10);
-                panelSouth.add(label2);
-                panelSouth.add(hire_Pconsolas);
-                panelSouth.add(fire_Pconsolas);
-                panelSouth.add(textarea11);
-                panelSouth.add(label3);
-                panelSouth.add(hire_Ppaquetes);
-                panelSouth.add(fire_Ppaquetes);
-                panelSouth.add(textarea12);
-                panelSouth.add(label4);
-                panelSouth.add(hire_ensamblador);
-                panelSouth.add(fire_ensamblador);
-                panelEast.add(boton5);
-                panelCenter.setLayout(new GridLayout(1,8));
-                panelCenter.add(scrollpane5);
-                panelCenter.add(textarea51);//probar si hace falta meter esto en un scrollpane!!!
-                panelCenter.add(scrollpane6);
-                panelCenter.add(textarea61);
-                panelCenter.add(scrollpane7);
-                panelCenter.add(textarea71);
-                panelCenter.add(scrollpane8);
-                panelCenter.add(textarea81);
-                panelWest.setLayout(new GridLayout(1,1));
-                panelWest.add(boton6);
-                boton3.setBorder(BorderFactory.createRaisedBevelBorder());
-                boton3.setBackground(Color.LIGHT_GRAY);
-                boton4.setBorder(BorderFactory.createRaisedBevelBorder());
-                boton4.setBackground(Color.LIGHT_GRAY);
-                boton5.setBorder(BorderFactory.createRaisedBevelBorder());
-                boton5.setBackground(Color.RED);
-                boton5.setForeground(Color.WHITE);
-                boton6.setBorder(BorderFactory.createRaisedBevelBorder());
-                boton6.setBackground(Color.RED);
-                boton6.setForeground(Color.WHITE);
-                boton1.addActionListener(this);
-                boton2.addActionListener(this);
-                boton3.addActionListener(this);
-                boton4.addActionListener(this);
-                boton5.addActionListener(this);
-                boton6.addActionListener(this);
-                hire_Pcontroles.addActionListener(this);
-                fire_Pcontroles.addActionListener(this);
-                hire_Pconsolas.addActionListener(this);
-                fire_Pconsolas.addActionListener(this);
-                hire_Ppaquetes.addActionListener(this);
-                fire_Ppaquetes.addActionListener(this);
-                hire_ensamblador.addActionListener(this);
-                fire_ensamblador.addActionListener(this);
-                add(panelppal);
+                this.panelNorth.add(boton1);
+                this.panelNorth.add(boton2);
+                this.panelNorth.add(boton3);
+                this.panelNorth.add(boton4);
+                this.panelEast.setLayout(new GridLayout(1,1));
+                this.panelSouth.setLayout(new GridLayout(9,2));
+                this.panelSouth.add(textarea9);
+                this.panelSouth.add(label1);
+                this.panelSouth.add(hire_Pcontroles);
+                this.panelSouth.add(fire_Pcontroles);
+                this.panelSouth.add(textarea10);
+                this.panelSouth.add(label2);
+                this.panelSouth.add(hire_Pconsolas);
+                this.panelSouth.add(fire_Pconsolas);
+                this.panelSouth.add(textarea11);
+                this.panelSouth.add(label3);
+                this.panelSouth.add(hire_Ppaquetes);
+                this.panelSouth.add(fire_Ppaquetes);
+                this.panelSouth.add(textarea12);
+                this.panelSouth.add(label4);
+                this.panelSouth.add(hire_ensamblador);
+                this.panelSouth.add(fire_ensamblador);
+                this.panelEast.add(boton5);
+                this.panelCenter.setLayout(new GridLayout(1,8));
+                this.panelCenter.add(scrollpane5);
+                this.panelCenter.add(textarea51);//probar si hace falta meter esto en un scrollpane!!!
+                this.panelCenter.add(scrollpane6);
+                this.panelCenter.add(textarea61);
+                this.panelCenter.add(scrollpane7);
+                this.panelCenter.add(textarea71);
+                this.panelCenter.add(scrollpane8);
+                this.panelCenter.add(textarea81);
+                this.panelWest.setLayout(new GridLayout(1,1));
+                this.panelWest.add(boton6);
+                this.boton3.setBorder(BorderFactory.createRaisedBevelBorder());
+                this.boton3.setBackground(Color.LIGHT_GRAY);
+                this.boton4.setBorder(BorderFactory.createRaisedBevelBorder());
+                this.boton4.setBackground(Color.LIGHT_GRAY);
+                this.boton5.setBorder(BorderFactory.createRaisedBevelBorder());
+                this.boton5.setBackground(Color.RED);
+                this.boton5.setForeground(Color.WHITE);
+                this.boton6.setBorder(BorderFactory.createRaisedBevelBorder());
+                this.boton6.setBackground(Color.RED);
+                this.boton6.setForeground(Color.WHITE);
+                this.boton1.addActionListener(this);
+                this.boton2.addActionListener(this);
+                this.boton3.addActionListener(this);
+                this.boton4.addActionListener(this);
+                this.boton5.addActionListener(this);
+                this.boton6.addActionListener(this);
+                this.hire_Pcontroles.addActionListener(this);
+                this.fire_Pcontroles.addActionListener(this);
+                this.hire_Pconsolas.addActionListener(this);
+                this.fire_Pconsolas.addActionListener(this);
+                this.hire_Ppaquetes.addActionListener(this);
+                this.fire_Ppaquetes.addActionListener(this);
+                this.hire_ensamblador.addActionListener(this);
+                this.fire_ensamblador.addActionListener(this);
+                add(this.panelppal);
                 setVisible(true);
 	} 
     
     @Override
     public void actionPerformed(ActionEvent e){
 		Object src=e.getSource();
-		if (src.equals(boton1)){
+		if (src.equals(this.boton1)){
+                   this.textarea1.setText("Introduzca el nombre del archivo:_"); 
+                   String nombre="";//Falta guardar el nombre del archivo.
+                   this.F=new Fabrica(nombre,this);
                 }
-                if (src.equals(boton2)){
+                if (src.equals(this.boton2)){
+                    this.textarea2.setText("Esta fumando un cigarro!!!"); 
                 }
-		if (src.equals(boton3)){
+		if (src.equals(this.boton3)){
                 }
-                if (src.equals(boton4)){
+                if (src.equals(this.boton4)){
                 }
-                if (src.equals(boton5)){
+                if (src.equals(this.boton5)){
+                    this.F=new Fabrica(this);
                 }
-                if (src.equals(boton6)){
+                if (src.equals(this.boton6)){
                 }
-                if (src.equals(hire_Pconsolas)){
+                if (src.equals(this.hire_Pconsolas)){
                 }
-                if (src.equals(fire_Pconsolas)){
+                if (src.equals(this.fire_Pconsolas)){
                 }
-                if (src.equals(hire_Pcontroles)){
+                if (src.equals(this.hire_Pcontroles)){
                 }
-                if (src.equals(fire_Pcontroles)){
+                if (src.equals(this.fire_Pcontroles)){
                 }
-                if (src.equals(hire_Ppaquetes)){
+                if (src.equals(this.hire_Ppaquetes)){
                 }
-                if (src.equals(fire_Ppaquetes)){
+                if (src.equals(this.fire_Ppaquetes)){
                 }
         }
     

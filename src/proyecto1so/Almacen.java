@@ -8,8 +8,9 @@ import java.util.concurrent.Semaphore;
 
 public class Almacen {
    
-   private int nro_juegosTerminados;  //Indica el nro de productos disponibles para la venta. 
-    
+   private int stock_juegos;  //Indica el nro de productos disponibles para la venta. 
+   private Semaphore S_stockJuegos;
+   
    private int tam_controles;         //tamaño del almacen de controles.
    private int ap_Pcontroles;         //apuntador al espacio del almacen que se puede utilizar.
    private int ap_Ccontroles;         //apuntador al elemento del almacen que se puede consumir.
@@ -42,7 +43,7 @@ public class Almacen {
      this.tam_controles=tam_cont;
      this.tam_consolas=tam_cons;
      this.tam_paquetes=tam_paq;
-     this.nro_juegosTerminados=0;
+     this.stock_juegos=0;
      this.ap_Pcontroles=0;
      this.ap_Ccontroles=0;
      this.ap_Pconsolas=0;
@@ -52,19 +53,32 @@ public class Almacen {
      this.Alm_controles=new boolean[this.tam_controles];
      this.Alm_consolas=new boolean[this.tam_consolas];
      this.Alm_paquetes=new boolean[this.tam_paquetes];
-     this.SP_controles=new Semaphore(30);
+     this.SP_controles=new Semaphore(this.tam_controles);
      this.SC_controles=new Semaphore(0);
      this.SE_controles=new Semaphore(1);
-     this.SP_consolas=new Semaphore(20);
+     this.SP_consolas=new Semaphore(this.tam_consolas);
      this.SC_consolas=new Semaphore(0);
      this.SE_consolas=new Semaphore(1);
-     this.SP_paquetes=new Semaphore(40);
+     this.SP_paquetes=new Semaphore(this.tam_paquetes);
      this.SC_paquetes=new Semaphore(0);
      this.SE_paquetes=new Semaphore(1);
+     this.S_stockJuegos=new Semaphore(1);
    }
 
-    public int getNro_juegosTerminados() {
-        return nro_juegosTerminados;
+    public int getStock_juegos() {
+        return stock_juegos;
+    }
+
+    public void setStock_juegos(int stock_juegos) {
+        this.stock_juegos = stock_juegos;
+    }
+
+    public Semaphore getS_stockJuegos() {
+        return S_stockJuegos;
+    }
+
+    public void setS_stockJuegos(Semaphore S_stockJuegos) {
+        this.S_stockJuegos = S_stockJuegos;
     }
 
     public int getTam_controles() {
@@ -151,9 +165,7 @@ public class Almacen {
         return SE_paquetes;
     }
 
-    public void setNro_juegosTerminados(int a) {
-        this.nro_juegosTerminados = a;
-    }
+  
 
     public void setTam_controles(int a) {
         this.tam_controles = a;

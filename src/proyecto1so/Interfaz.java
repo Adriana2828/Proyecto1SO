@@ -6,11 +6,13 @@
 package proyecto1so;
 import java.awt.*;
 import java.awt.event.*;
+import java.util.concurrent.Semaphore;
 import javax.swing.*;
 
 public class Interfaz extends JFrame implements ActionListener {
     
-    JPanel panelppal= new JPanel();
+ 
+     JPanel panelppal= new JPanel();
      Color rojo=new Color(255,0, 0x0);
      Color rojoOscuro= new Color(153,0,0x0);
      
@@ -21,7 +23,7 @@ public class Interfaz extends JFrame implements ActionListener {
     JTextArea textarea1=new JTextArea("ARCHIVO \n \n \n \n \n \n");
     JTextArea textarea2=new JTextArea("GERENTE \n \n \n \n \n \n");
     JTextArea textarea3=new JTextArea("# DE DIAS \n \n \n \n \n \n");
-    JTextArea textarea4=new JTextArea("# DE JUEGOS \n \n \n \n \n \n");
+    JTextArea textarea4=new JTextArea("");// Nro de Juegos terminados en stock
     JScrollPane scrollpane1= new JScrollPane(textarea1,JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED
     ,JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
     
@@ -112,31 +114,32 @@ public class Interfaz extends JFrame implements ActionListener {
                 this.textarea4.setEditable(true);
 		this.textarea4.setLineWrap(true);
 		this.textarea4.setWrapStyleWord(true);
-                this.textarea4.setFont(new Font("Arial ", Font.BOLD, 14));
+                this.textarea4.setFont(new Font("Arial ", Font.BOLD, 48));
                 this.textarea4.setBorder(BorderFactory.createLineBorder(Color.black));
+                this.textarea4.setForeground(Color.red);
                 this.textarea5.setEditable(true);
 		this.textarea5.setLineWrap(true);
 		this.textarea5.setWrapStyleWord(true);
-                this.textarea5.setFont(new Font("Arial ", Font.BOLD, 58));
+                this.textarea5.setFont(new Font("Arial ", Font.BOLD, 48));
                 this.textarea5.setForeground(Color.blue);             
                 this.textarea5.setBorder(BorderFactory.createLineBorder(Color.blue));
                 this.textarea6.setEditable(true);
 		this.textarea6.setLineWrap(true);
 		this.textarea6.setWrapStyleWord(true);
                 this.textarea6.setForeground(Color.black);
-                this.textarea6.setFont(new Font("Arial ", Font.BOLD, 58));
+                this.textarea6.setFont(new Font("Arial ", Font.BOLD, 48));
                 this.textarea6.setBorder(BorderFactory.createLineBorder(Color.black));
                 this.textarea7.setEditable(true);
 		this.textarea7.setForeground(Color.blue);
                 this.textarea7.setLineWrap(true);
 		this.textarea7.setWrapStyleWord(true);
-                this.textarea7.setFont(new Font("Arial ", Font.BOLD, 58));
+                this.textarea7.setFont(new Font("Arial ", Font.BOLD, 48));
                 this.textarea7.setBorder(BorderFactory.createLineBorder(Color.blue));
                 this.textarea8.setForeground(Color.black);
                 this.textarea8.setEditable(true);
 		this.textarea8.setLineWrap(true);
 		this.textarea8.setWrapStyleWord(true);
-                this.textarea8.setFont(new Font("Arial ", Font.BOLD, 58));
+                this.textarea8.setFont(new Font("Arial ", Font.BOLD, 48));
                 this.textarea8.setBorder(BorderFactory.createLineBorder(Color.black));
                 this.textarea9.setEditable(true);
 		this.textarea9.setLineWrap(true);
@@ -203,9 +206,11 @@ public class Interfaz extends JFrame implements ActionListener {
                 this.boton3.setBackground(Color.LIGHT_GRAY);
                 this.boton4.setBorder(BorderFactory.createRaisedBevelBorder());
                 this.boton4.setBackground(Color.LIGHT_GRAY);
+                this.boton5.setFont(new Font("Arial ", Font.BOLD, 28));
                 this.boton5.setBorder(BorderFactory.createRaisedBevelBorder());
                 this.boton5.setBackground(Color.black);
                 this.boton5.setForeground(Color.WHITE);
+                this.boton6.setFont(new Font("Arial ", Font.BOLD, 28));
                 this.boton6.setBorder(BorderFactory.createRaisedBevelBorder());
                 this.boton6.setBackground(Color.black);
                 this.boton6.setForeground(Color.WHITE);
@@ -242,23 +247,40 @@ public class Interfaz extends JFrame implements ActionListener {
                 }
                 if (src.equals(this.boton4)){
                 }
-                if (src.equals(this.boton5)){
+                
+                if (src.equals(this.boton5)){//Iniciar todo con valores por defecto
                     this.F=new Fabrica(this);
+                    this.textarea9.setText(this.textarea9.getText()+this.F.getNro_prod_controles());
+                    this.textarea10.setText(this.textarea10.getText()+this.F.getNro_prod_consolas());
+                    this.textarea11.setText(this.textarea11.getText()+this.F.getNro_prod_paquetes());
+                    this.textarea12.setText(this.textarea12.getText()+this.F.getNro_ensambladores());
                 }
                 if (src.equals(this.boton6)){
                 }
                 if (src.equals(this.hire_Pconsolas)){
+                    
+                    this.F.contratar_pconsolas();
                 }
                 if (src.equals(this.fire_Pconsolas)){
+                
+                    this.F.despedir_pconsolas();
                 }
                 if (src.equals(this.hire_Pcontroles)){
+                    
+                    this.F.contratar_pcontroles();
                 }
                 if (src.equals(this.fire_Pcontroles)){
+                
+                    this.F.despedir_pcontroles();
+                    
                 }
                 if (src.equals(this.hire_Ppaquetes)){
+                          this.F.contratar_ppaquetes();
                 }
                 if (src.equals(this.fire_Ppaquetes)){
+                       this.F.despedir_ppaquetes();
                 }
         }
     
+
 }

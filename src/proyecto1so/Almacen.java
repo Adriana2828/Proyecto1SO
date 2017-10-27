@@ -17,6 +17,7 @@ public class Almacen {
    private Semaphore SP_controles;    //Semaforo para controlar la produccion de controles.
    private Semaphore SC_controles;    //Semaforo para controlar el consumo de controles.
    private Semaphore SE_controles;    //Semaforo para controlar la exclusion mutua del almacen de controles.
+   private int stock_controles;       // Numero total de controles en almacen.
    
    private int tam_consolas;         //tamaño del almacen de consolas.
    private int ap_Pconsolas;         //apuntador al espacio del almacen que se puede utilizar.
@@ -25,6 +26,7 @@ public class Almacen {
    private Semaphore SP_consolas;    //Semaforo para controlar la produccion de consolas.
    private Semaphore SC_consolas;    //Semaforo para controlar el consumo de consolas.
    private Semaphore SE_consolas;    //Semaforo para controlar la exclusion mutua del almacen de consolas.
+   private int stock_consolas;       //Numero total de consolas en almacen.
    
    private int tam_paquetes;         //tamaño del almacen de paquetes.
    private int ap_Ppaquetes;         //apuntador al espacio del almacen que se puede utilizar.
@@ -33,7 +35,7 @@ public class Almacen {
    private Semaphore SP_paquetes;    //Semaforo para controlar la produccion de paquetes.
    private Semaphore SC_paquetes;    //Semaforo para controlar el consumo de paquetes.
    private Semaphore SE_paquetes;    //Semaforo para controlar la exclusion mutua del almacen de paquetes.
-   
+   private int stock_paquetes;       //Numero total de paquetes en almacen.
    
    public Almacen(int tam_cont, int tam_cons, int tam_paq)
    {
@@ -50,6 +52,15 @@ public class Almacen {
      this.Alm_controles=new boolean[this.tam_controles];
      this.Alm_consolas=new boolean[this.tam_consolas];
      this.Alm_paquetes=new boolean[this.tam_paquetes];
+     this.SP_controles=new Semaphore(30);
+     this.SC_controles=new Semaphore(0);
+     this.SE_controles=new Semaphore(1);
+     this.SP_consolas=new Semaphore(20);
+     this.SC_consolas=new Semaphore(0);
+     this.SE_consolas=new Semaphore(1);
+     this.SP_paquetes=new Semaphore(40);
+     this.SC_paquetes=new Semaphore(0);
+     this.SE_paquetes=new Semaphore(1);
    }
 
     public int getNro_juegosTerminados() {
@@ -156,7 +167,7 @@ public class Almacen {
         this.ap_Ccontroles = a;
     }
 
-    public void producir_control() {
+    public void almacenar_control() {
         
         this.Alm_controles[this.ap_Pcontroles] =true;
         this.ap_Pcontroles=(ap_Pcontroles+1)%this.tam_controles;
@@ -184,7 +195,7 @@ public class Almacen {
         this.ap_Cconsolas = a;
     }
 
-    public void producir_consola() {
+    public void almacenar_consola() {
         this.Alm_consolas[this.ap_Pconsolas] =true;
         this.ap_Pconsolas=(ap_Pconsolas+1)%this.tam_consolas;
     }
@@ -209,7 +220,7 @@ public class Almacen {
         this.ap_Cpaquetes = a;
     }
 
-    public void producir_paquete() {
+    public void almacenar_paquete() {
         
         this.Alm_paquetes[this.ap_Ppaquetes] =true;
         this.ap_Ppaquetes=(ap_Ppaquetes+1)%this.tam_paquetes;
@@ -225,8 +236,28 @@ public class Almacen {
         
     }
 
-   
-   
-   
-   
+    public int getStock_controles() {
+        return stock_controles;
+    }
+
+    public void setStock_controles(int stock_controles) {
+        this.stock_controles = stock_controles;
+    }
+
+    public int getStock_consolas() {
+        return stock_consolas;
+    }
+
+    public void setStock_consolas(int stock_consolas) {
+        this.stock_consolas = stock_consolas;
+    }
+
+    public int getStock_paquetes() {
+        return stock_paquetes;
+    }
+
+    public void setStock_paquetes(int stock_paquetes) {
+        this.stock_paquetes = stock_paquetes;
+    }
+
 }

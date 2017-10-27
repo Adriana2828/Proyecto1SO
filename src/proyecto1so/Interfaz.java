@@ -41,34 +41,22 @@ public class Interfaz extends JFrame implements ActionListener {
     //--------------------------
     JPanel panelEast= new JPanel();
     //Componentes de panelEast
-    JButton boton5= new JButton("INICIAR TODO");
+  
     //---------------------------
     JPanel panelCenter= new JPanel();
     //Componentes de panelCenter
     
-     JTextArea textarea5= new JTextArea("Produccion de controles");
+     JTextArea textarea5= new JTextArea("");//Nro de Controles
      JScrollPane scrollpane5= new JScrollPane(textarea5,JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED
     ,JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
-     JTextArea textarea51= new JTextArea("# DE CONTROLES:_");
-     JScrollPane scrollpane51= new JScrollPane(textarea51,JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED
-    ,JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
-     JTextArea textarea61= new JTextArea("# DE CONSOLAS:_");
-     JScrollPane scrollpane61= new JScrollPane(textarea61,JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED
-    ,JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
-     JTextArea textarea71= new JTextArea("# DE PAQUETES:_");
-     JScrollPane scrollpane71= new JScrollPane(textarea71,JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED
-    ,JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
-     JTextArea textarea81= new JTextArea("# DE PIEZAS ENSAMBLADAS:_");
-     JScrollPane scrollpane81= new JScrollPane(textarea81,JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED
-    ,JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
-    JTextArea textarea6= new JTextArea("Produccion de consolas");
-    JTextArea textarea7= new JTextArea ("Produccion de paquetes");  
+    JTextArea textarea6= new JTextArea("");//Nro de Consolas
+    JTextArea textarea7= new JTextArea ("");//Nro de Paquetes  
     JScrollPane scrollpane6= new JScrollPane(textarea6,JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED
     ,JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
     JScrollPane scrollpane7= new JScrollPane(textarea7,JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED
     ,JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
      
-    JTextArea textarea8= new JTextArea("Ensamblaje");
+    JTextArea textarea8= new JTextArea("");//Nro de Productos ensamblados
     JScrollPane scrollpane8= new JScrollPane(textarea8,JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED
     ,JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);    
 
@@ -76,7 +64,7 @@ public class Interfaz extends JFrame implements ActionListener {
       JPanel panelWest=new JPanel();
     //Componentes de panelWest
     
-      JButton boton6= new JButton("PARAR TODO");
+  
      
     //---------------------------  
     JPanel panelSouth=new JPanel();
@@ -96,6 +84,8 @@ public class Interfaz extends JFrame implements ActionListener {
     JButton fire_Ppaquetes=new JButton("Despedir");
     JButton hire_ensamblador=new JButton("Contratar");
     JButton fire_ensamblador=new JButton("Despedir");
+    JButton boton5= new JButton("INICIAR TODO");
+    JButton boton6= new JButton("PARAR TODO");
 //------------------------------------------------------------------------------
     Fabrica F;
  
@@ -127,22 +117,26 @@ public class Interfaz extends JFrame implements ActionListener {
                 this.textarea5.setEditable(true);
 		this.textarea5.setLineWrap(true);
 		this.textarea5.setWrapStyleWord(true);
-                this.textarea5.setFont(new Font("Arial ", Font.ITALIC, 14));
-                this.textarea5.setBorder(BorderFactory.createLineBorder(Color.black));
+                this.textarea5.setFont(new Font("Arial ", Font.BOLD, 58));
+                this.textarea5.setForeground(Color.blue);             
+                this.textarea5.setBorder(BorderFactory.createLineBorder(Color.blue));
                 this.textarea6.setEditable(true);
 		this.textarea6.setLineWrap(true);
 		this.textarea6.setWrapStyleWord(true);
-                this.textarea6.setFont(new Font("Arial ", Font.ITALIC, 14));
+                this.textarea6.setForeground(Color.black);
+                this.textarea6.setFont(new Font("Arial ", Font.BOLD, 58));
                 this.textarea6.setBorder(BorderFactory.createLineBorder(Color.black));
                 this.textarea7.setEditable(true);
-		this.textarea7.setLineWrap(true);
+		this.textarea7.setForeground(Color.blue);
+                this.textarea7.setLineWrap(true);
 		this.textarea7.setWrapStyleWord(true);
-                this.textarea7.setFont(new Font("Arial ", Font.ITALIC, 14));
-                this.textarea7.setBorder(BorderFactory.createLineBorder(Color.black));
+                this.textarea7.setFont(new Font("Arial ", Font.BOLD, 58));
+                this.textarea7.setBorder(BorderFactory.createLineBorder(Color.blue));
+                this.textarea8.setForeground(Color.black);
                 this.textarea8.setEditable(true);
 		this.textarea8.setLineWrap(true);
 		this.textarea8.setWrapStyleWord(true);
-                this.textarea8.setFont(new Font("Arial ", Font.ITALIC, 14));
+                this.textarea8.setFont(new Font("Arial ", Font.BOLD, 58));
                 this.textarea8.setBorder(BorderFactory.createLineBorder(Color.black));
                 this.textarea9.setEditable(true);
 		this.textarea9.setLineWrap(true);
@@ -164,36 +158,6 @@ public class Interfaz extends JFrame implements ActionListener {
 		this.textarea12.setWrapStyleWord(true);
                 this.textarea12.setFont(new Font("Arial ", Font.BOLD, 14));
                 this.textarea12.setBorder(BorderFactory.createLineBorder(Color.black));
-                this.textarea51.setEditable(true);
-		this.textarea51.setLineWrap(true);
-		this.textarea51.setWrapStyleWord(true);
-                this.textarea51.setFont(new Font("Arial Bold", Font.BOLD, 14));
-                this.textarea51.setBackground(Color.white);
-                this.textarea51.setBorder(BorderFactory.createLineBorder(Color.black));
-                this.textarea51.setForeground(Color.white);
-                this.textarea51.setBackground(rojoOscuro);
-                this.textarea61.setEditable(true);
-		this.textarea61.setLineWrap(true);
-		this.textarea61.setWrapStyleWord(true);
-                this.textarea61.setBackground(rojoOscuro);
-                this.textarea61.setFont(new Font("Arial Bold", Font.BOLD, 14));
-                this.textarea61.setBorder(BorderFactory.createLineBorder(Color.black));
-                this.textarea61.setForeground(Color.white);
-                this.textarea61.setBackground(rojoOscuro);
-                this.textarea71.setEditable(true);
-		this.textarea71.setLineWrap(true);
-                this.textarea71.setForeground(Color.white);
-                this.textarea71.setBackground(rojoOscuro);
-		this.textarea71.setWrapStyleWord(true);
-                this.textarea71.setFont(new Font("Arial Bold", Font.BOLD, 14));
-                this.textarea71.setBorder(BorderFactory.createLineBorder(Color.black));
-                this.textarea81.setEditable(true);
-		this.textarea81.setLineWrap(true);
-                this.textarea81.setForeground(Color.white);
-                this.textarea81.setBackground(rojoOscuro);
-		this.textarea81.setWrapStyleWord(true);
-                this.textarea81.setFont(new Font("Arial Bold", Font.BOLD, 14));
-                this.textarea81.setBorder(BorderFactory.createLineBorder(Color.black));
                 this.panelppal.setLayout(new BorderLayout());
                 this.panelppal.add(panelNorth,BorderLayout.PAGE_START);
                 this.panelppal.add(panelEast,BorderLayout.LINE_START);
@@ -204,8 +168,7 @@ public class Interfaz extends JFrame implements ActionListener {
                 this.panelNorth.add(scrollpane1);
                 this.panelNorth.add(scrollpane2);
                 this.panelNorth.add(scrollpane3);
-                this.panelNorth.add(scrollpane4);
-             
+                this.panelNorth.add(scrollpane4);             
                 this.panelNorth.add(boton1);
                 this.panelNorth.add(boton2);
                 this.panelNorth.add(boton3);
@@ -228,27 +191,23 @@ public class Interfaz extends JFrame implements ActionListener {
                 this.panelSouth.add(label4);
                 this.panelSouth.add(hire_ensamblador);
                 this.panelSouth.add(fire_ensamblador);
-                this.panelEast.add(boton5);
+                this.panelSouth.add(boton5);
+                this.panelSouth.add(boton6);
                 this.panelCenter.setLayout(new GridLayout(1,8));
                 this.panelCenter.add(scrollpane5);
-                this.panelCenter.add(textarea51);//probar si hace falta meter esto en un scrollpane!!!
                 this.panelCenter.add(scrollpane6);
-                this.panelCenter.add(textarea61);
                 this.panelCenter.add(scrollpane7);
-                this.panelCenter.add(textarea71);
                 this.panelCenter.add(scrollpane8);
-                this.panelCenter.add(textarea81);
                 this.panelWest.setLayout(new GridLayout(1,1));
-                this.panelWest.add(boton6);
                 this.boton3.setBorder(BorderFactory.createRaisedBevelBorder());
                 this.boton3.setBackground(Color.LIGHT_GRAY);
                 this.boton4.setBorder(BorderFactory.createRaisedBevelBorder());
                 this.boton4.setBackground(Color.LIGHT_GRAY);
                 this.boton5.setBorder(BorderFactory.createRaisedBevelBorder());
-                this.boton5.setBackground(Color.RED);
+                this.boton5.setBackground(Color.black);
                 this.boton5.setForeground(Color.WHITE);
                 this.boton6.setBorder(BorderFactory.createRaisedBevelBorder());
-                this.boton6.setBackground(Color.RED);
+                this.boton6.setBackground(Color.black);
                 this.boton6.setForeground(Color.WHITE);
                 this.boton1.addActionListener(this);
                 this.boton2.addActionListener(this);

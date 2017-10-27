@@ -243,7 +243,7 @@ public void despedir_ppaquetes(){
         this.prod_paquetes[this.nro_prod_paquetes-1].pausar();        
         this.nro_prod_paquetes--;
         this.I.textarea11.setText("Nro de Productores de Paquetes:_"+this.nro_prod_paquetes);
-
+        
 }
 public void despedir_pconsolas(){
 
@@ -251,7 +251,7 @@ public void despedir_pconsolas(){
         this.prod_consolas[this.nro_prod_consolas-1].pausar();        
         this.nro_prod_consolas--;
         this.I.textarea10.setText("Nro de Productores de Consolas:_"+this.nro_prod_consolas);
-
+       
 }
 public void despedir_ensambladores(){
 
@@ -259,7 +259,9 @@ public void despedir_ensambladores(){
         this.ensambladores[this.nro_ensambladores-1].pausar();        
         this.nro_ensambladores--;
         this.I.textarea12.setText("Nro de Ensambladores:_"+this.nro_ensambladores);
-
+        if(this.nro_ensambladores==0){
+            this.I.textarea8.setText("Ensamblaje detenido");
+        }
 }
 public int getNro_prod_controles() {
         return nro_prod_controles;

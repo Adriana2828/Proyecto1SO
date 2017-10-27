@@ -46,7 +46,7 @@ public class Productor extends Thread {
                        this.A.getSE_controles().release();
                      //Aviso q se puede consumir un nuevo control
                        this.A.getSC_controles().release();
-                       
+                      
                        synchronized(this){
                 
                        while(pausar==true){

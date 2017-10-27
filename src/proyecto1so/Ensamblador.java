@@ -57,8 +57,31 @@ public class Ensamblador extends Thread {
                 this.A.getSE_paquetes().release();
                 //Aviso al productor de paquetes que hay un nuevo espacio disponible en almacen
                 this.A.getSP_paquetes().release();
+                  synchronized(this){ 
+                          while(pausar==true){
+                          wait();
+                          }
+                      }
                 //Dura dos dias ensamblando
-                //this.I.textarea8.setText("Ensamblando...");
+                this.I.textarea8.setText("Ensamblando");
+                if(this.I.F.getNro_prod_controles()==0){
+                this.I.textarea5.setText("Controles en Almacen:\n"+"              "+this.A.getStock_controles());
+                if((this.A.getStock_controles()==1)||(this.A.getStock_controles()==0)){
+                   this.I.textarea8.setText("Ensamblaje a la espera de piezas");
+                }
+                 }
+                if(this.I.F.getNro_prod_consolas()==0){
+                this.I.textarea6.setText("Consolas en Almacen:\n"+"              "+this.A.getStock_consolas());
+                 if(this.A.getStock_consolas()==0){
+                   this.I.textarea8.setText("Ensamblaje a la espera de piezas");
+                } 
+                }
+                if(this.I.F.getNro_prod_paquetes()==0){
+                this.I.textarea7.setText("Paquetes en Almacen:\n"+"              "+this.A.getStock_paquetes());
+                 if(this.A.getStock_paquetes()==0){
+                   this.I.textarea8.setText("Ensamblaje a la espera de piezas");
+                } 
+                }
                 //Aumentar el nro de juegos terminados disponibles
                 //Pido permiso para modificar el contador de juegos terminados
                 this.A.getS_stockJuegos().acquire();
@@ -68,11 +91,7 @@ public class Ensamblador extends Thread {
                 this.A.getS_stockJuegos().release();
                 
                 
-                 synchronized(this){ 
-                          while(pausar==true){
-                          wait();
-                          }
-                      }
+               
                 
                 
                

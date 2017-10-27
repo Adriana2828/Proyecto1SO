@@ -32,8 +32,8 @@ private int max_ensambladores; // indica nro maximo de ensambladores
 private int nro_ensambladores; // indica nro de ensambladores activos
 
 private void producir(){
-         //producir_controles();
-         //producir_consolas();
+         producir_controles();
+         producir_consolas();
          producir_paquetes();
 }
 private void ensamblar(){
@@ -126,12 +126,12 @@ private void inicializar_ensambladores(){
 
 public Fabrica(Interfaz I){ //Inicia con los valores establecidos en el enunciado del proyecto.
     this.I=I;  
-    this.A=new Almacen(30,20,4000);
+    this.A=new Almacen(30,20,40);
     this.max_prod_controles=5;
     this.nro_prod_controles=3;
     this.max_prod_consolas=10;
     this.nro_prod_consolas=2;
-    this.max_prod_paquetes=300;
+    this.max_prod_paquetes=3;
     this.nro_prod_paquetes=1;
     this.nro_ensambladores=1;
     this.max_ensambladores=4;
@@ -140,7 +140,7 @@ public Fabrica(Interfaz I){ //Inicia con los valores establecidos en el enunciad
     this.inicializar_prod_paquetes();
     this.inicializar_ensambladores();
     this.producir();
-    //this.ensamblar();
+    this.ensamblar();
     
     
 }
@@ -148,6 +148,26 @@ public Almacen get_Almacen() {
         return this.A;
     }
 public Fabrica(String nombre, Interfaz I){// Para iniciar con los valores leidos de un archivo.
+}
+public void contratar_ensambladores(){
+
+    if (this.nro_ensambladores<this.max_ensambladores){
+        if(this.ensambladores[nro_ensambladores]==null){
+            
+        this.ensambladores[this.nro_ensambladores]=new Ensamblador(this.A,this.I);
+        this.status_ensambladores[this.nro_ensambladores]=true;
+        this.ensambladores[this.nro_ensambladores].start();        
+        this.nro_ensambladores++;
+        this.I.textarea12.setText("Nro de Ensambladores:_"+this.nro_ensambladores);
+    }
+        else{
+             this.ensambladores[nro_ensambladores].reanudar();
+             this.nro_ensambladores++;
+             this.I.textarea12.setText("Nro de Ensambladores:_"+this.nro_ensambladores);
+        }
+    
+    }
+    
 }
 public void contratar_pcontroles(){
 
@@ -231,6 +251,14 @@ public void despedir_pconsolas(){
         this.prod_consolas[this.nro_prod_consolas-1].pausar();        
         this.nro_prod_consolas--;
         this.I.textarea10.setText("Nro de Productores de Consolas:_"+this.nro_prod_consolas);
+
+}
+public void despedir_ensambladores(){
+
+        this.status_ensambladores[this.nro_ensambladores-1]=false;
+        this.ensambladores[this.nro_ensambladores-1].pausar();        
+        this.nro_ensambladores--;
+        this.I.textarea12.setText("Nro de Ensambladores:_"+this.nro_ensambladores);
 
 }
 public int getNro_prod_controles() {

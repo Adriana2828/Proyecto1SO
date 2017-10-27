@@ -280,6 +280,13 @@ public class Interfaz extends JFrame implements ActionListener {
                 if (src.equals(this.fire_Ppaquetes)){
                        this.F.despedir_ppaquetes();
                 }
+                if (src.equals(this.hire_ensamblador)){
+                       this.F.contratar_ensambladores();
+                }
+                if (src.equals(this.fire_ensamblador)){
+                       this.F.despedir_ensambladores();
+                }
+                
         }
     
 

@@ -9,7 +9,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class Ensamblador extends Thread {
-    
+     private Boolean pausar=false;
      private Almacen A;
      private Interfaz I;
     
@@ -68,7 +68,11 @@ public class Ensamblador extends Thread {
                 this.A.getS_stockJuegos().release();
                 
                 
-                
+                 synchronized(this){ 
+                          while(pausar==true){
+                          wait();
+                          }
+                      }
                 
                 
                
@@ -85,5 +89,12 @@ public class Ensamblador extends Thread {
     
     
 }
+   public void pausar(){
+     this.pausar=true;
+    }
     
+    synchronized void reanudar(){
+     this.pausar=false;
+     notify();
+    }  
 }

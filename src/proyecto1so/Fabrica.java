@@ -49,7 +49,7 @@ public Fabrica(Interfaz I){ //Inicia con los valores establecidos en el enunciad
     this.I=I;
     this.dia=5000;
     this.cd=new ContadorDias(this.dia,this.I);
-    this.A=new Almacen(30,20,40);
+    this.A=new Almacen(30,20,40,10);
     this.C=new Cronometrador(this.dia,this.A,this.I);
     this.G=new Gerente(this.dia,this.A,this.I);
     this.max_prod_controles=5;

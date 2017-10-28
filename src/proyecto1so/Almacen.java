@@ -45,7 +45,7 @@ public class Almacen {
    private Semaphore SE_paquetes;    //Semaforo para controlar la exclusion mutua del almacen de paquetes.
    private int stock_paquetes;       //Numero total de paquetes en almacen.
    
-   public Almacen(int tam_cont, int tam_cons, int tam_paq)
+   public Almacen(int tam_cont, int tam_cons, int tam_paq, int dias_despacho)
    {
      this.tam_controles=tam_cont;
      this.tam_consolas=tam_cons;
@@ -73,7 +73,7 @@ public class Almacen {
      //------------------------------------------------------------------------
      this.S_cont=new Semaphore(1);
      this.S_dias_para_despacho=new Semaphore(1);
-     this.nro_diasfijo_despacho=10;
+     this.nro_diasfijo_despacho=dias_despacho;
      this.dias_para_despacho=this.nro_diasfijo_despacho;
      this.cont=0;
      this.unidades_disponibles=0;

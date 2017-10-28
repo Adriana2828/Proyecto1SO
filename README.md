@@ -1,5 +1,9 @@
+
 # Proyecto1SO
-## Proyecto de Sistemas Operativos para el curso Sistemas Operativos de la escuela de sistemas de la Universidad Metropolitana de Caracas
+![Java](https://s3-ap-southeast-1.amazonaws.com/djamblog/article-061216083709.png)
+
+## Proyecto de Sistemas Operativos para el curso Sistemas Operativos de la Escuela de Ingenieria Sistemas de la Universidad Metropolitana de Caracas
+
 ## Enunciado del Proyecto
 
 
@@ -33,6 +37,13 @@ Su programa deberá hacer uso de una interfaz gráfica que permita observar y co
 La simulación debe permitir, en tiempo de ejecución:
 •	Contratar o despedir un productor de cualquiera de los tres tipos.
 •	Contratar o despedir un ensamblador.
+
+# Implementacion en java
+
+
+
+
+
 
 Además, a través de un archivo (el tipo de archivo queda a elección del estudiante), se le debe poder indicar al programa los siguientes parámetros:
 •	Tiempo, en segundos, que dura un día en el programa.

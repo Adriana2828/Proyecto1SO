@@ -39,7 +39,7 @@ La simulación debe permitir, en tiempo de ejecución:
 •	Contratar o despedir un ensamblador.
 
 # Implementacion en java
-
+(https://club28blog.files.wordpress.com/2017/10/proyecto1so.png)
 
 
 

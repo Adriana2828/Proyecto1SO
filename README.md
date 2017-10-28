@@ -1,9 +1,9 @@
 # Proyecto1SO
-#Proyecto de Sistemas Operativos para el curso Sistemas Operativos de la escuela de sistemas de la Universidad Metropolitana de Caracas
-##Enunciado del Proyecto
+## Proyecto de Sistemas Operativos para el curso Sistemas Operativos de la escuela de sistemas de la Universidad Metropolitana de Caracas
+## Enunciado del Proyecto
 
 
-###Proyecto 1
+### Proyecto 1
 Una importante compañía de videojuegos lo ha contratado para realizar una modelación de la fabricación de sus sistemas de videojuegos. Para ello, se le pide que realice un programa en Java, que haga uso de hilos, semáforos y las soluciones conocidas a los problemas de productor/consumidor y lector/escritor. 
 Durante el proceso de fabricación se requieren dos tipos de empleados:
 1.	Productores: Encargados de producir las distintas partes necesarias para vender una consola. Es necesario mencionar que tienen a su disposición almacenes de capacidades finitas en los que guardan las piezas una vez están listas. Antes de producir una pieza, un productor comprueba si existe espacio en el almacén para guardarla. Existen tres grupos de productores:

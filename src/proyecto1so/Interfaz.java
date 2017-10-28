@@ -20,8 +20,8 @@ public class Interfaz extends JFrame implements ActionListener {
     JPanel panelNorth=new JPanel(); 
     //Componentes de panelNorth
     
-    JTextArea textarea1=new JTextArea("ARCHIVO"); //Iniciar desde archivo
-    JTextArea textarea2=new JTextArea("GERENTE "); //Que esta haciendo el Gerente
+    JTextArea textarea1=new JTextArea(""); //Iniciar desde archivo
+    JTextArea textarea2=new JTextArea(""); //Que esta haciendo el Gerente
     JTextArea textarea3=new JTextArea("");//Nro de dias que faltan para despachar.
     JTextArea textarea4=new JTextArea("");// Nro de Unidades Disponible Sin Despachar
     JScrollPane scrollpane1= new JScrollPane(textarea1,JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED
@@ -58,7 +58,7 @@ public class Interfaz extends JFrame implements ActionListener {
     JScrollPane scrollpane7= new JScrollPane(textarea7,JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED
     ,JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
      
-    JTextArea textarea8= new JTextArea("");//Nro de Productos ensamblados
+    JTextArea textarea8= new JTextArea("");//Mensaje ensamblando...
     JScrollPane scrollpane8= new JScrollPane(textarea8,JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED
     ,JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);    
 
@@ -87,7 +87,7 @@ public class Interfaz extends JFrame implements ActionListener {
     JButton hire_ensamblador=new JButton("Contratar");
     JButton fire_ensamblador=new JButton("Despedir");
     JButton boton5= new JButton("INICIAR TODO");
-    JButton boton6= new JButton("PARAR TODO");
+    JButton boton6= new JButton("NUEVA FABRICA");
 //------------------------------------------------------------------------------
     Fabrica F;
  
@@ -99,8 +99,10 @@ public class Interfaz extends JFrame implements ActionListener {
                 this.textarea1.setEditable(true);
 		this.textarea1.setLineWrap(true);
 		this.textarea1.setWrapStyleWord(true);
-                this.textarea1.setFont(new Font("Arial ", Font.BOLD, 14));
+                this.textarea1.setFont(new Font("Arial ", Font.BOLD, 28));
                 this.textarea1.setBorder(BorderFactory.createLineBorder(Color.black));
+                this.textarea1.setBackground(Color.black);
+                this.textarea1.setForeground(Color.CYAN);
                 this.textarea2.setEditable(true);
 		this.textarea2.setLineWrap(true);
 		this.textarea2.setWrapStyleWord(true);
@@ -108,17 +110,19 @@ public class Interfaz extends JFrame implements ActionListener {
                 this.textarea2.setBorder(BorderFactory.createLineBorder(Color.black));
                 this.textarea2.setForeground(Color.black);
                 this.textarea3.setEditable(true);
+                this.textarea3.setBackground(Color.black);
 		this.textarea3.setLineWrap(true);
 		this.textarea3.setWrapStyleWord(true);
-                this.textarea3.setFont(new Font("Arial ", Font.BOLD, 28));
-                this.textarea3.setForeground(Color.red);
+                this.textarea3.setFont(new Font("Arial ", Font.BOLD, 38));
+                this.textarea3.setForeground(Color.CYAN);
                 this.textarea3.setBorder(BorderFactory.createLineBorder(Color.black));
                 this.textarea4.setEditable(true);
 		this.textarea4.setLineWrap(true);
 		this.textarea4.setWrapStyleWord(true);
-                this.textarea4.setFont(new Font("Arial ", Font.BOLD, 28));
+                this.textarea4.setFont(new Font("Arial ", Font.BOLD, 38));
                 this.textarea4.setBorder(BorderFactory.createLineBorder(Color.black));
-                this.textarea4.setForeground(Color.blue);
+                this.textarea4.setForeground(Color.white);
+                this.textarea4.setBackground(Color.black);
                 this.textarea5.setEditable(true);
 		this.textarea5.setLineWrap(true);
 		this.textarea5.setWrapStyleWord(true);
@@ -128,7 +132,7 @@ public class Interfaz extends JFrame implements ActionListener {
                 this.textarea6.setEditable(true);
 		this.textarea6.setLineWrap(true);
 		this.textarea6.setWrapStyleWord(true);
-                this.textarea6.setForeground(Color.black);
+                this.textarea6.setForeground(Color.blue);
                 this.textarea6.setFont(new Font("Arial ", Font.BOLD, 38));
                 this.textarea6.setBorder(BorderFactory.createLineBorder(Color.black));
                 this.nro_dias_programa.setEditable(true);
@@ -139,7 +143,7 @@ public class Interfaz extends JFrame implements ActionListener {
                 this.nro_dias_programa.setFont(new Font("Arial ", Font.BOLD, 38));
                 this.nro_dias_programa.setBorder(BorderFactory.createLineBorder(Color.blue));
                 this.textarea7.setEditable(true);
-		this.textarea7.setForeground(Color.blue);
+		this.textarea7.setForeground(Color.black);
                 this.textarea7.setLineWrap(true);
 		this.textarea7.setWrapStyleWord(true);
                 this.textarea7.setFont(new Font("Arial ", Font.BOLD, 38));
@@ -149,17 +153,18 @@ public class Interfaz extends JFrame implements ActionListener {
 		this.cronometrador.setWrapStyleWord(true);
                 this.cronometrador.setFont(new Font("Arial ", Font.BOLD, 28));
                 this.cronometrador.setBorder(BorderFactory.createLineBorder(Color.blue));
+                this.unidades_finales.setBackground(Color.black);
                 this.unidades_finales.setForeground(Color.red);
                 this.unidades_finales.setEditable(true);
 		this.unidades_finales.setLineWrap(true);
 		this.unidades_finales.setWrapStyleWord(true);
-                this.unidades_finales.setFont(new Font("Arial ", Font.BOLD, 28));
+                this.unidades_finales.setFont(new Font("Arial ", Font.BOLD, 38));
                 this.unidades_finales.setBorder(BorderFactory.createLineBorder(Color.black));
-                this.textarea8.setForeground(Color.black);
+                this.textarea8.setForeground(Color.blue);
                 this.textarea8.setEditable(true);
 		this.textarea8.setLineWrap(true);
 		this.textarea8.setWrapStyleWord(true);
-                this.textarea8.setFont(new Font("Arial ", Font.BOLD, 28));
+                this.textarea8.setFont(new Font("Arial ", Font.BOLD, 38));
                 this.textarea8.setBorder(BorderFactory.createLineBorder(Color.black));
                 this.textarea9.setEditable(true);
 		this.textarea9.setLineWrap(true);
@@ -263,6 +268,8 @@ public class Interfaz extends JFrame implements ActionListener {
                     this.textarea12.setText(this.textarea12.getText()+this.F.getNro_ensambladores());
                 }
                 if (src.equals(this.boton6)){
+                    Interfaz I=new Interfaz();
+                    I.Go();
                 }
                 if (src.equals(this.hire_Pconsolas)){
                     

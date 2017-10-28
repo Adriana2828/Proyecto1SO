@@ -33,11 +33,11 @@ public class Cronometrador extends Thread {
             try {
                 
                 //Pasa un dia
-                this.I.cronometrador.setText("Cronometrador durmiendo");
+                this.I.cronometrador.setText("\nCronometrador durmiendo\n");
                 Cronometrador.sleep(this.dia);    
                 //----------------------------
                 this.A.getS_dias_para_despacho().acquire(); //Pedir acceso al contador
-                this.I.cronometrador.setText("Cronometrador escribiendo");
+                this.I.cronometrador.setText("\nCronometrador escribiendo\n");
                 if(this.A.getDias_para_despacho()==0){
                     //Reinicio el contador
                     this.A.setDias_para_despacho(this.A.getNro_diasfijo_despacho());          

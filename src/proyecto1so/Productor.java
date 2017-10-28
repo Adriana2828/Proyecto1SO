@@ -42,7 +42,7 @@ public class Productor extends Thread {
                       //Dejo el control en el almacen
                        this.A.almacenar_control();
                        this.A.setStock_controles(this.A.getStock_controles()+1);
-                       this.I.textarea5.setText("Controles en Almacen:            "+this.A.getStock_controles());
+                       this.I.textarea5.setText("\nControles en Almacen:            "+this.A.getStock_controles());
                        System.out.println("Controles en Almacen:_"+this.A.getStock_controles());
                        //Ya sali del almacen
                        this.A.getSE_controles().release();
@@ -75,7 +75,7 @@ public class Productor extends Thread {
                       //Dejo la consola en el almacen
                       this.A.almacenar_consola();
                       this.A.setStock_consolas(this.A.getStock_consolas()+1);
-                      this.I.textarea6.setText("Consolas en almacen:            "+A.getStock_consolas());
+                      this.I.textarea6.setText("\nConsolas en almacen:            "+A.getStock_consolas());
                       //Ya sali del almacen
                       this.A.getSE_consolas().release();
                       //Aviso q se puede consumir una nueva consola
@@ -109,7 +109,7 @@ public class Productor extends Thread {
                       //Dejo el paquete en el almacen
                       this.A.almacenar_paquete();
                       this.A.setStock_paquetes(this.A.getStock_paquetes()+1);
-                      this.I.textarea7.setText("Paquetes en almacen:            "+A.getStock_paquetes());
+                      this.I.textarea7.setText("\nPaquetes en almacen:            "+A.getStock_paquetes());
                       //Ya sali del almacen
                       this.A.getSE_paquetes().release();
                       //Aviso q se puede consumir un nuevo paquete

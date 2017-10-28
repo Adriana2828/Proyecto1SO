@@ -59,31 +59,33 @@ public class Ensamblador extends Thread {
                 this.A.getSE_paquetes().release();
                 //Aviso al productor de paquetes que hay un nuevo espacio disponible en almacen
                 this.A.getSP_paquetes().release();
+                 
+                //Ensamblaje
+                 Ensamblador.sleep(this.dia*this.nro_dias);
                   synchronized(this){ 
                           while(pausar==true){
                           wait();
                           }
                       }
-                //Ensamblaje
-                 Ensamblador.sleep(this.dia*this.nro_dias);
                 //-----------------------------------------------------------------
-                this.I.textarea8.setText("Ensamblando");
+                this.I.textarea8.setText("\nEnsamblando");
+                
                 if(this.I.F.getNro_prod_controles()==0){
-                this.I.textarea5.setText("Controles en Almacen:\n"+"              "+this.A.getStock_controles());
+                this.I.textarea5.setText("\nControles en Almacen:\n"+"              "+this.A.getStock_controles());
                 if((this.A.getStock_controles()==1)||(this.A.getStock_controles()==0)){
-                   this.I.textarea8.setText("Ensamblaje a la espera de piezas");
+                   this.I.textarea8.setText("\nEnsamblaje a la espera de piezas");
                 }
                  }
                 if(this.I.F.getNro_prod_consolas()==0){
-                this.I.textarea6.setText("Consolas en Almacen:\n"+"              "+this.A.getStock_consolas());
+                this.I.textarea6.setText("\nConsolas en Almacen:\n"+"              "+this.A.getStock_consolas());
                  if(this.A.getStock_consolas()==0){
-                   this.I.textarea8.setText("Ensamblaje a la espera de piezas");
+                   this.I.textarea8.setText("\nEnsamblaje a la espera de piezas");
                 } 
                 }
                 if(this.I.F.getNro_prod_paquetes()==0){
-                this.I.textarea7.setText("Paquetes en Almacen:\n"+"              "+this.A.getStock_paquetes());
+                this.I.textarea7.setText("\nPaquetes en Almacen:\n"+"              "+this.A.getStock_paquetes());
                  if(this.A.getStock_paquetes()==0){
-                   this.I.textarea8.setText("Ensamblaje a la espera de piezas");
+                   this.I.textarea8.setText("\nEnsamblaje a la espera de piezas");
                 } 
                 }
                 //Aumentar el nro de unidades disponibles
@@ -91,7 +93,7 @@ public class Ensamblador extends Thread {
                 this.A.getS_stockJuegos().acquire();
                 this.A.setUnidades_disponibles(this.A.getUnidades_disponibles()+1);
                 //Aviso que ya deje de usar el contador de juegos terminados
-                this.I.textarea4.setText("Nro de unidades sin despachar:\n"+"              "+this.A.getUnidades_disponibles());
+                this.I.textarea4.setText("Nro de unidades sin despachar:"+"        "+this.A.getUnidades_disponibles());
                 this.A.getS_stockJuegos().release();
                 
                 

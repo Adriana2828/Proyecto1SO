@@ -47,9 +47,9 @@ private int nro_dias_ensamblaje;  //numero de dias que toma ensamblar el product
 public Fabrica(Interfaz I){ //Inicia con los valores establecidos en el enunciado del proyecto.
     
     this.I=I;
-    this.dia=5000;
+    this.dia=4000;
     this.cd=new ContadorDias(this.dia,this.I);
-    this.A=new Almacen(30,20,40,10);
+    this.A=new Almacen(30,20,40,10); //Alm controles, Alm consolas, Alm Paquetes, Dias Despacho
     this.C=new Cronometrador(this.dia,this.A,this.I);
     this.G=new Gerente(this.dia,this.A,this.I);
     this.max_prod_controles=5;
@@ -206,7 +206,6 @@ public int getNro_prod_paquetes() {
 public int getNro_ensambladores() {
         return nro_ensambladores;
     }
-
 private void producir(){
          producir_controles();
          producir_consolas();

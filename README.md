@@ -37,14 +37,6 @@ Su programa deberá hacer uso de una interfaz gráfica que permita observar y co
 La simulación debe permitir, en tiempo de ejecución:
 •	Contratar o despedir un productor de cualquiera de los tres tipos.
 •	Contratar o despedir un ensamblador.
-
-# Implementacion en java
-(https://club28blog.files.wordpress.com/2017/10/proyecto1so.png)
-
-
-
-
-
 Además, a través de un archivo (el tipo de archivo queda a elección del estudiante), se le debe poder indicar al programa los siguientes parámetros:
 •	Tiempo, en segundos, que dura un día en el programa.
 •	Cantidad de días entre despachos.
@@ -53,3 +45,10 @@ Además, a través de un archivo (el tipo de archivo queda a elección del estud
 •	La cantidad máximo de productores de cada tipo.
 •	La cantidad inicial de ensambladores.
 •	La cantidad máxima de ensambladores.
+
+
+# Implementacion en java
+![Java2](https://club28blog.files.wordpress.com/2017/10/proyecto1so.png)
+
+
+

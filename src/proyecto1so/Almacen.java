@@ -8,8 +8,15 @@ import java.util.concurrent.Semaphore;
 
 public class Almacen {
    
-   private int stock_juegos;  //Indica el nro de productos disponibles para la venta. 
-   private Semaphore S_stockJuegos;
+   private int unidades_disponibles;      //Indica el nro de unidades disponibles, sin despachar.
+   private int stock_juegos;              //Indica el nro de unidades FINALES disponibles
+   private int nro_diasfijo_despacho;     //Esta variable no se modifica. Es el valor predeterminado de dias de despacho
+   private int dias_para_despacho;        //Indica el nro de dias que falta para realizar un nuevo despacho.
+   private int cont;                      //Contador de lectores de la variable dias_para_despacho.
+   private Semaphore S_cont;              // Controla el acceso a la variable S_cont
+   private Semaphore S_dias_para_despacho;// Controla el acceso a la variable dias_para_despacho 
+   private Semaphore S_stockJuegos;       // Controla el acceso a la variable stock_juegos y unidades_disponibles.
+   
    
    private int tam_controles;         //tamaño del almacen de controles.
    private int ap_Pcontroles;         //apuntador al espacio del almacen que se puede utilizar.
@@ -62,9 +69,55 @@ public class Almacen {
      this.SP_paquetes=new Semaphore(this.tam_paquetes);
      this.SC_paquetes=new Semaphore(0);
      this.SE_paquetes=new Semaphore(1);
+     
+     //------------------------------------------------------------------------
+     this.S_cont=new Semaphore(1);
+     this.S_dias_para_despacho=new Semaphore(1);
+     this.nro_diasfijo_despacho=10;
+     this.dias_para_despacho=this.nro_diasfijo_despacho;
+     this.cont=0;
+     this.unidades_disponibles=0;
      this.S_stockJuegos=new Semaphore(1);
    }
 
+    public int getNro_diasfijo_despacho() {
+        return nro_diasfijo_despacho;
+    }
+   
+   
+
+    public int getUnidades_disponibles() {
+        return unidades_disponibles;
+    }
+
+    public int getDias_para_despacho() {
+        return dias_para_despacho;
+    }
+
+    public int getCont() {
+        return cont;
+    }
+
+    public void setUnidades_disponibles(int unidades_disponibles) {
+        this.unidades_disponibles = unidades_disponibles;
+    }
+
+    public void setDias_para_despacho(int dias_para_despacho) {
+        this.dias_para_despacho = dias_para_despacho;
+    }
+
+    public void setCont(int cont) {
+        this.cont = cont;
+    }
+   
+    public Semaphore getS_cont() {
+        return S_cont;
+    }
+
+    public Semaphore getS_dias_para_despacho() {
+        return S_dias_para_despacho;
+    }
+   
     public int getStock_juegos() {
         return stock_juegos;
     }
@@ -165,8 +218,7 @@ public class Almacen {
         return SE_paquetes;
     }
 
-  
-
+ 
     public void setTam_controles(int a) {
         this.tam_controles = a;
     }

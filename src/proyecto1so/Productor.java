@@ -13,11 +13,15 @@ public class Productor extends Thread {
     private Boolean pausar=false;
     private Almacen A;
     private Interfaz I;
+    private int dia; //valor de un dia en el programa
+    private int nro_dias; //numero de dias que dura la produccion
     private int tipo; // tipo==0 (controles), tipo==1(consola), tipo==2(paquetes)
-    public Productor(Almacen a, Interfaz i,int t){
+    public Productor(Almacen a, Interfaz i,int t, int xdia,int xnro_dias){
        this.A=a;
        this.I=i;
        this.tipo=t;
+       this.dia=xdia;
+       this.nro_dias=xnro_dias;
     }
     @Override
      public void run(){
@@ -30,17 +34,15 @@ public class Productor extends Thread {
                       //Comprobar si hay espacio en el almacen de controles
                        this.A.getSP_controles().acquire();
                        //---------------------------------------------------------
-                       //producir controles
-                      //OJO AQUI FALTA PRODUCIR POR UN DIA OJOJOJOJOJOJO!!!
-                       Productor.sleep(1000);
-                      //Produzco el control (esto toma un dia)
+                       //Produzco el control 
+                         Productor.sleep(this.dia*this.nro_dias);
                       //-----------------------------------------------------------
                       //Quiero entrar al almacen para dejar el control
                        this.A.getSE_controles().acquire();
                       //Dejo el control en el almacen
                        this.A.almacenar_control();
                        this.A.setStock_controles(this.A.getStock_controles()+1);
-                       this.I.textarea5.setText("Controles en Almacen:\n"+"              "+this.A.getStock_controles());
+                       this.I.textarea5.setText("Controles en Almacen:            "+this.A.getStock_controles());
                        System.out.println("Controles en Almacen:_"+this.A.getStock_controles());
                        //Ya sali del almacen
                        this.A.getSE_controles().release();
@@ -65,17 +67,15 @@ public class Productor extends Thread {
                       //Comprobar si espacio en el almacen de consolas
                       this.A.getSP_consolas().acquire();
                       //---------------------------------------------------------
-                       //producir consolas
-                      //OJO AQUI FALTA PRODUCIR  OJOJOJOJOJOJO!!!
-                       Productor.sleep(1000);
-                      //Produzco la consolas (esto toma un dia)
+                       //Producir consolas
+                         Productor.sleep(this.dia*this.nro_dias);
                       //---------------------------------------------------------
                       //Quiero entrar al almacen para dejar el control
                       this.A.getSE_consolas().acquire();
                       //Dejo la consola en el almacen
                       this.A.almacenar_consola();
                       this.A.setStock_consolas(this.A.getStock_consolas()+1);
-                      this.I.textarea6.setText("Consolas en almacen:\n                   "+A.getStock_consolas());
+                      this.I.textarea6.setText("Consolas en almacen:            "+A.getStock_consolas());
                       //Ya sali del almacen
                       this.A.getSE_consolas().release();
                       //Aviso q se puede consumir una nueva consola
@@ -101,17 +101,15 @@ public class Productor extends Thread {
                       //Comprobar si hay espacio en el almacen de paquetes
                       this.A.getSP_paquetes().acquire();
                       //----------------------------------------------------------
-                       //producir paquetes
-                      //OJO AQUI FALTA PRODUCIR  OJOJOJOJOJOJO!!!
-                       Productor.sleep(1000);
-                      //Produzco los paquetes ---
+                       //Producir paquetes                    
+                         Productor.sleep(this.dia*this.nro_dias);
                       //----------------------------------------------------------
                       //Quiero entrar al almacen para dejar el paquete
                       this.A.getSE_paquetes().acquire();
                       //Dejo el paquete en el almacen
                       this.A.almacenar_paquete();
                       this.A.setStock_paquetes(this.A.getStock_paquetes()+1);
-                      this.I.textarea7.setText("Paquetes en almacen:\n                   "+A.getStock_paquetes());
+                      this.I.textarea7.setText("Paquetes en almacen:            "+A.getStock_paquetes());
                       //Ya sali del almacen
                       this.A.getSE_paquetes().release();
                       //Aviso q se puede consumir un nuevo paquete

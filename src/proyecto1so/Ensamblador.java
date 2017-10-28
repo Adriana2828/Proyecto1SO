@@ -12,12 +12,14 @@ public class Ensamblador extends Thread {
      private Boolean pausar=false;
      private Almacen A;
      private Interfaz I;
-    
-     public Ensamblador (Almacen a, Interfaz I){
+     private int dia; //valor en milisegundos de un dia en el programa
+     private int nro_dias; //duracion del ensamblaje en dias.
+     public Ensamblador (Almacen a, Interfaz I, int xdia, int xnro_dias){
      
      this.A=a;
      this.I=I;
-         
+     this.dia=xdia;
+     this.nro_dias=xnro_dias;
      } 
     
      public void run(){
@@ -62,7 +64,9 @@ public class Ensamblador extends Thread {
                           wait();
                           }
                       }
-                //Dura dos dias ensamblando
+                //Ensamblaje
+                 Ensamblador.sleep(this.dia*this.nro_dias);
+                //-----------------------------------------------------------------
                 this.I.textarea8.setText("Ensamblando");
                 if(this.I.F.getNro_prod_controles()==0){
                 this.I.textarea5.setText("Controles en Almacen:\n"+"              "+this.A.getStock_controles());
@@ -82,19 +86,18 @@ public class Ensamblador extends Thread {
                    this.I.textarea8.setText("Ensamblaje a la espera de piezas");
                 } 
                 }
-                //Aumentar el nro de juegos terminados disponibles
-                //Pido permiso para modificar el contador de juegos terminados
+                //Aumentar el nro de unidades disponibles
+                //Pido permiso para modificar el contador de unidades disponibles
                 this.A.getS_stockJuegos().acquire();
-                this.A.setStock_juegos(this.A.getStock_juegos()+1);
+                this.A.setUnidades_disponibles(this.A.getUnidades_disponibles()+1);
                 //Aviso que ya deje de usar el contador de juegos terminados
-                this.I.textarea4.setText("Nro de Juegos:\n"+"              "+this.A.getStock_juegos());
+                this.I.textarea4.setText("Nro de unidades sin despachar:\n"+"              "+this.A.getUnidades_disponibles());
                 this.A.getS_stockJuegos().release();
                 
                 
                
                 
                 
-               
             } catch (InterruptedException ex) {
                 Logger.getLogger(Ensamblador.class.getName()).log(Level.SEVERE, null, ex);
             }

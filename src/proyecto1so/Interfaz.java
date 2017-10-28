@@ -20,10 +20,10 @@ public class Interfaz extends JFrame implements ActionListener {
     JPanel panelNorth=new JPanel(); 
     //Componentes de panelNorth
     
-    JTextArea textarea1=new JTextArea("ARCHIVO \n \n \n \n \n \n");
-    JTextArea textarea2=new JTextArea("GERENTE \n \n \n \n \n \n");
-    JTextArea textarea3=new JTextArea("# DE DIAS \n \n \n \n \n \n");
-    JTextArea textarea4=new JTextArea("");// Nro de Juegos terminados en stock
+    JTextArea textarea1=new JTextArea("ARCHIVO"); //Iniciar desde archivo
+    JTextArea textarea2=new JTextArea("GERENTE "); //Que esta haciendo el Gerente
+    JTextArea textarea3=new JTextArea("");//Nro de dias que faltan para despachar.
+    JTextArea textarea4=new JTextArea("");// Nro de Unidades Disponible Sin Despachar
     JScrollPane scrollpane1= new JScrollPane(textarea1,JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED
     ,JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
     
@@ -37,9 +37,9 @@ public class Interfaz extends JFrame implements ActionListener {
     ,JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
     
     JButton boton1=new JButton("Iniciar desde Archivo");
-    JButton boton2=new JButton("Que esta haciendo el gerente?");
-    JButton boton3=new JButton();
-    JButton boton4=new JButton();
+    JTextArea nro_dias_programa=new JTextArea("");//Nro de dias que han pasado en el programa;
+    JTextArea unidades_finales=new JTextArea(""); //Unidades Despachadas.
+    JTextArea cronometrador=new JTextArea(""); //Que esta haciendo el cronometrador
     //--------------------------
     JPanel panelEast= new JPanel();
     //Componentes de panelEast
@@ -104,42 +104,62 @@ public class Interfaz extends JFrame implements ActionListener {
                 this.textarea2.setEditable(true);
 		this.textarea2.setLineWrap(true);
 		this.textarea2.setWrapStyleWord(true);
-                this.textarea2.setFont(new Font("Arial ", Font.BOLD, 14));
+                this.textarea2.setFont(new Font("Arial ", Font.BOLD, 28));
                 this.textarea2.setBorder(BorderFactory.createLineBorder(Color.black));
+                this.textarea2.setForeground(Color.black);
                 this.textarea3.setEditable(true);
 		this.textarea3.setLineWrap(true);
 		this.textarea3.setWrapStyleWord(true);
-                this.textarea3.setFont(new Font("Arial ", Font.BOLD, 14));
+                this.textarea3.setFont(new Font("Arial ", Font.BOLD, 28));
+                this.textarea3.setForeground(Color.red);
                 this.textarea3.setBorder(BorderFactory.createLineBorder(Color.black));
                 this.textarea4.setEditable(true);
 		this.textarea4.setLineWrap(true);
 		this.textarea4.setWrapStyleWord(true);
-                this.textarea4.setFont(new Font("Arial ", Font.BOLD, 48));
+                this.textarea4.setFont(new Font("Arial ", Font.BOLD, 28));
                 this.textarea4.setBorder(BorderFactory.createLineBorder(Color.black));
-                this.textarea4.setForeground(Color.red);
+                this.textarea4.setForeground(Color.blue);
                 this.textarea5.setEditable(true);
 		this.textarea5.setLineWrap(true);
 		this.textarea5.setWrapStyleWord(true);
-                this.textarea5.setFont(new Font("Arial ", Font.BOLD, 48));
-                this.textarea5.setForeground(Color.blue);             
+                this.textarea5.setFont(new Font("Arial ", Font.BOLD, 38));
+                this.textarea5.setForeground(Color.black);             
                 this.textarea5.setBorder(BorderFactory.createLineBorder(Color.blue));
                 this.textarea6.setEditable(true);
 		this.textarea6.setLineWrap(true);
 		this.textarea6.setWrapStyleWord(true);
                 this.textarea6.setForeground(Color.black);
-                this.textarea6.setFont(new Font("Arial ", Font.BOLD, 48));
+                this.textarea6.setFont(new Font("Arial ", Font.BOLD, 38));
                 this.textarea6.setBorder(BorderFactory.createLineBorder(Color.black));
+                this.nro_dias_programa.setEditable(true);
+		this.nro_dias_programa.setForeground(Color.white);
+                this.nro_dias_programa.setBackground(Color.black);
+                this.nro_dias_programa.setLineWrap(true);
+		this.nro_dias_programa.setWrapStyleWord(true);
+                this.nro_dias_programa.setFont(new Font("Arial ", Font.BOLD, 38));
+                this.nro_dias_programa.setBorder(BorderFactory.createLineBorder(Color.blue));
                 this.textarea7.setEditable(true);
 		this.textarea7.setForeground(Color.blue);
                 this.textarea7.setLineWrap(true);
 		this.textarea7.setWrapStyleWord(true);
-                this.textarea7.setFont(new Font("Arial ", Font.BOLD, 48));
-                this.textarea7.setBorder(BorderFactory.createLineBorder(Color.blue));
+                this.textarea7.setFont(new Font("Arial ", Font.BOLD, 38));
+                this.cronometrador.setEditable(true);
+		this.cronometrador.setForeground(Color.blue);
+                this.cronometrador.setLineWrap(true);
+		this.cronometrador.setWrapStyleWord(true);
+                this.cronometrador.setFont(new Font("Arial ", Font.BOLD, 28));
+                this.cronometrador.setBorder(BorderFactory.createLineBorder(Color.blue));
+                this.unidades_finales.setForeground(Color.red);
+                this.unidades_finales.setEditable(true);
+		this.unidades_finales.setLineWrap(true);
+		this.unidades_finales.setWrapStyleWord(true);
+                this.unidades_finales.setFont(new Font("Arial ", Font.BOLD, 28));
+                this.unidades_finales.setBorder(BorderFactory.createLineBorder(Color.black));
                 this.textarea8.setForeground(Color.black);
                 this.textarea8.setEditable(true);
 		this.textarea8.setLineWrap(true);
 		this.textarea8.setWrapStyleWord(true);
-                this.textarea8.setFont(new Font("Arial ", Font.BOLD, 48));
+                this.textarea8.setFont(new Font("Arial ", Font.BOLD, 28));
                 this.textarea8.setBorder(BorderFactory.createLineBorder(Color.black));
                 this.textarea9.setEditable(true);
 		this.textarea9.setLineWrap(true);
@@ -169,13 +189,13 @@ public class Interfaz extends JFrame implements ActionListener {
                 this.panelppal.add(panelSouth,BorderLayout.PAGE_END);
                 this.panelNorth.setLayout(new  GridLayout(2,4));
                 this.panelNorth.add(scrollpane1);
-                this.panelNorth.add(scrollpane2);
+                this.panelNorth.add(nro_dias_programa);
                 this.panelNorth.add(scrollpane3);
                 this.panelNorth.add(scrollpane4);             
                 this.panelNorth.add(boton1);
-                this.panelNorth.add(boton2);
-                this.panelNorth.add(boton3);
-                this.panelNorth.add(boton4);
+                this.panelNorth.add(scrollpane2);
+                this.panelNorth.add(cronometrador);
+                this.panelNorth.add(unidades_finales);
                 this.panelEast.setLayout(new GridLayout(1,1));
                 this.panelSouth.setLayout(new GridLayout(9,2));
                 this.panelSouth.add(textarea9);
@@ -202,10 +222,6 @@ public class Interfaz extends JFrame implements ActionListener {
                 this.panelCenter.add(scrollpane7);
                 this.panelCenter.add(scrollpane8);
                 this.panelWest.setLayout(new GridLayout(1,1));
-                this.boton3.setBorder(BorderFactory.createRaisedBevelBorder());
-                this.boton3.setBackground(Color.LIGHT_GRAY);
-                this.boton4.setBorder(BorderFactory.createRaisedBevelBorder());
-                this.boton4.setBackground(Color.LIGHT_GRAY);
                 this.boton5.setFont(new Font("Arial ", Font.BOLD, 28));
                 this.boton5.setBorder(BorderFactory.createRaisedBevelBorder());
                 this.boton5.setBackground(Color.black);
@@ -215,9 +231,6 @@ public class Interfaz extends JFrame implements ActionListener {
                 this.boton6.setBackground(Color.black);
                 this.boton6.setForeground(Color.WHITE);
                 this.boton1.addActionListener(this);
-                this.boton2.addActionListener(this);
-                this.boton3.addActionListener(this);
-                this.boton4.addActionListener(this);
                 this.boton5.addActionListener(this);
                 this.boton6.addActionListener(this);
                 this.hire_Pcontroles.addActionListener(this);
@@ -240,13 +253,7 @@ public class Interfaz extends JFrame implements ActionListener {
                    String nombre="";//Falta guardar el nombre del archivo.
                    this.F=new Fabrica(nombre,this);
                 }
-                if (src.equals(this.boton2)){
-                    this.textarea2.setText("Esta fumando un cigarro!!!"); 
-                }
-		if (src.equals(this.boton3)){
-                }
-                if (src.equals(this.boton4)){
-                }
+               
                 
                 if (src.equals(this.boton5)){//Iniciar todo con valores por defecto
                     this.F=new Fabrica(this);

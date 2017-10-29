@@ -43,17 +43,19 @@ public class Gerente extends Thread {
                this.I.textarea2.setText("\ngerente verificando contador\n");
                //Aqui es donde yo digo, si diahs_para_despacho==0 autorizo despacho.
                if(this.A.getDias_para_despacho()==0){//Autorizo el despacho
-                
+                  
                   this.A.getS_stockJuegos().acquire();
-                  this.I.textarea2.setText("\ngerente autorizando despacho\n");
+                  
                   this.A.setStock_juegos(this.A.getStock_juegos()+this.A.getUnidades_disponibles());
                   this.A.setUnidades_disponibles(0);
                   
                   this.I.textarea4.setText("Nro de unidades sin despachar:      "+this.A.getUnidades_disponibles());
-                  this.I.unidades_finales.setText("Unidades Finales:_"+this.A.getStock_juegos());
+                  this.I.unidades_finales.setText("\nUnidades Finales:_"+this.A.getStock_juegos());
+                  
                   this.A.getS_stockJuegos().release();
                   this.A.getS_cont().acquire();
                   this.A.setCont(this.A.getCont()-1);
+                  
                   if(this.A.getCont()==0){
                         this.A.getS_dias_para_despacho().release();
                         }  

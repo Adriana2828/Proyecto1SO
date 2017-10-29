@@ -123,17 +123,34 @@ public Almacen get_Almacen() {
         return this.A;
     }
 public void contratar_ensambladores(){
-
-    if (this.nro_ensambladores<this.max_ensambladores){
-        if(this.ensambladores[nro_ensambladores]==null){
+    
+  
+    if (this.nro_ensambladores==0){
+        if(this.ensambladores[0]==null){
+            
+        this.ensambladores[0]=new Ensamblador(this.A,this.I,this.dia,this.nro_dias_ensamblaje);
+        this.status_ensambladores[0]=true;
+        this.ensambladores[0].start();        
+        this.nro_ensambladores++;
+        this.I.textarea12.setText("Nro de Ensambladores:_"+this.nro_ensambladores);
+        }
+        else {
+             this.ensambladores[nro_ensambladores].reanudar();
+             this.nro_ensambladores++;
+             this.I.textarea12.setText("Nro de Ensambladores:_"+this.nro_ensambladores);
+        }
+    }
+    
+   if (this.nro_ensambladores<this.max_ensambladores){
+         if(this.ensambladores[nro_ensambladores]==null){
             
         this.ensambladores[this.nro_ensambladores]=new Ensamblador(this.A,this.I,this.dia,this.nro_dias_ensamblaje);
         this.status_ensambladores[this.nro_ensambladores]=true;
         this.ensambladores[this.nro_ensambladores].start();        
         this.nro_ensambladores++;
         this.I.textarea12.setText("Nro de Ensambladores:_"+this.nro_ensambladores);
-    }
-        else{
+    }         
+     else{
              this.ensambladores[nro_ensambladores].reanudar();
              this.nro_ensambladores++;
              this.I.textarea12.setText("Nro de Ensambladores:_"+this.nro_ensambladores);

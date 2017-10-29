@@ -1,0 +1,13 @@
+•	Tiempo, en segundos, que dura un día en el programa.
+•	Cantidad de días entre despachos.
+•	Capacidad Maxima Almacen de Controles
+•	Capacidad Maxima Almacen de Consolas
+•	Capacidad Maxima Almacen de Paquetes
+•	Cantidad  Inicial de Productores de Controles
+•	Cantidad  Inicial de Productores de Consolas
+•	Cantidad  Inicial de Productores de Paquetes
+•	Cantidad  Inicial de Ensambladores
+•	Cantidad  Maxima de Productores de Controles
+•	Cantidad  Maxima de Productores de Consolas
+•	Cantidad  Maxima de Productores de Paquetes
+•	Cantidad  Maxima de Ensambladores

@@ -6,7 +6,10 @@
 package proyecto1so;
 import java.awt.*;
 import java.awt.event.*;
+import java.io.IOException;
 import java.util.concurrent.Semaphore;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.*;
 
 public class Interfaz extends JFrame implements ActionListener {
@@ -20,7 +23,7 @@ public class Interfaz extends JFrame implements ActionListener {
     JPanel panelNorth=new JPanel(); 
     //Componentes de panelNorth
     
-    JTextArea textarea1=new JTextArea(""); //Iniciar desde archivo
+    JTextArea textarea1=new JTextArea(); //Iniciar desde archivo
     JTextArea textarea2=new JTextArea(""); //Que esta haciendo el Gerente
     JTextArea textarea3=new JTextArea("");//Nro de dias que faltan para despachar.
     JTextArea textarea4=new JTextArea("");// Nro de Unidades Disponible Sin Despachar
@@ -99,10 +102,10 @@ public class Interfaz extends JFrame implements ActionListener {
                 this.textarea1.setEditable(true);
 		this.textarea1.setLineWrap(true);
 		this.textarea1.setWrapStyleWord(true);
-                this.textarea1.setFont(new Font("Arial ", Font.BOLD, 28));
+                this.textarea1.setFont(new Font("Arial ", Font.BOLD, 14));
                 this.textarea1.setBorder(BorderFactory.createLineBorder(Color.black));
                 this.textarea1.setBackground(Color.black);
-                this.textarea1.setForeground(Color.CYAN);
+                this.textarea1.setForeground(Color.red);
                 this.textarea2.setEditable(true);
 		this.textarea2.setLineWrap(true);
 		this.textarea2.setWrapStyleWord(true);
@@ -253,10 +256,20 @@ public class Interfaz extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e){
 		Object src=e.getSource();
-		if (src.equals(this.boton1)){
-                   this.textarea1.setText("Introduzca el nombre del archivo:_"); 
-                   String nombre="";//Falta guardar el nombre del archivo.
-                   this.F=new Fabrica(nombre,this);
+		if (src.equals(this.boton1)){ 
+                   this.textarea1.setText("\nSimulacion iniciada con los valores del archivo de texto");
+                   String nombre="C:\\Users\\dearf\\OneDrive\\Documents\\github\\java\\Proyecto1SO\\Proyecto1SO\\Archivo.txt";
+                   
+                    try {
+                        this.F=new Fabrica(nombre,this);
+                        this.textarea9.setText(this.textarea9.getText()+this.F.getNro_prod_controles());
+                        this.textarea10.setText(this.textarea10.getText()+this.F.getNro_prod_consolas());
+                        this.textarea11.setText(this.textarea11.getText()+this.F.getNro_prod_paquetes());
+                        this.textarea12.setText(this.textarea12.getText()+this.F.getNro_ensambladores());
+                      
+                    } catch (IOException ex) {
+                        Logger.getLogger(Interfaz.class.getName()).log(Level.SEVERE, null, ex);
+                    }
                 }
                
                 

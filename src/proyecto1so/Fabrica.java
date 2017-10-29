@@ -4,10 +4,11 @@
  * and open the template in the editor.
  */
 package proyecto1so;
-
+import java.io.IOException;
 
 public class Fabrica {
-    
+ 
+private LeerArchivo LA;    
     
 private Cronometrador C;    
 private Gerente G;
@@ -42,8 +43,6 @@ private int nro_ensambladores; // indica nro de ensambladores activos
 private int nro_dias_ensamblaje;  //numero de dias que toma ensamblar el producto final.
 
 
-
-
 public Fabrica(Interfaz I){ //Inicia con los valores establecidos en el enunciado del proyecto.
     
     this.I=I;
@@ -75,11 +74,54 @@ public Fabrica(Interfaz I){ //Inicia con los valores establecidos en el enunciad
     this.ensamblar();
    
 }
+public Fabrica(String nombre, Interfaz I) throws IOException{// Para iniciar con los valores leidos de un archivo.
+    this.LA=new LeerArchivo(nombre);
+    this.I=I;
+    this.dia=1000*LA.getTiempo_Seg_UnDia(); //cantidad de milisegundos en un dia.
+    this.cd=new ContadorDias(this.dia,this.I);  
+    this.A=new Almacen(this.LA.getCap_Max_Alm_Controles(),this.LA.getCant_Max_PConsolas(),this.LA.getCant_Max_PPaquetes(),this.LA.getCant_dias_despachos());
+    this.C=new Cronometrador(this.dia,this.A,this.I);
+    this.G=new Gerente(this.dia,this.A,this.I);
+    this.max_prod_controles=this.LA.getCant_Max_PControles();
+    this.nro_prod_controles=this.LA.getCant_inic_PControles(); 
+    this.nro_dias_pcontroles=1;
+    this.max_prod_consolas=this.LA.getCant_Max_PConsolas();
+    this.nro_prod_consolas=this.LA.getCant_inic_PConsolas();
+    this.nro_dias_pconsolas=3;
+    this.max_prod_paquetes=this.LA.getCant_Max_PPaquetes();
+    this.nro_prod_paquetes=this.LA.getCant_inic_PPaquetes();
+    this.nro_dias_ppaquetes=1;
+    this.nro_ensambladores=this.LA.getCant_inic_Ensambladores(); 
+    this.max_ensambladores=this.LA.getCant_Max_Ensambladores();
+    this.nro_dias_ensamblaje=2;
+    System.out.println("Tiempo de un programa en segundos:_"+this.dia+"\n");
+    System.out.println("Cantidad de dias entre despachos:_"+this.LA.getCant_dias_despachos()+"\n");
+    System.out.println("Cantidad Maxima de Almacen de Controles:_"+this.LA.getCap_Max_Alm_Controles()+"\n");
+    System.out.println("Cantidad Maxima de Almacen de Consolas:_"+this.LA.getCap_Max_Alm_Consolas()+"\n");
+    System.out.println("Cantidad Maxima de Almacen de Paquetes:_"+this.LA.getCap_Max_Alm_Paquetes()+"\n");
+    System.out.println("Cantidad Inicial de productores de controles:_"+this.LA.getCant_inic_PControles()+"\n");
+    System.out.println("Cantidad Inicial de productores de consolas:_"+this.LA.getCant_inic_PConsolas()+"\n");
+    System.out.println("Cantidad Inicial de productores de paquetes:_"+this.LA.getCant_inic_PPaquetes()+"\n");
+    System.out.println("Cantidad Inicial de ensambladores:_"+this.LA.getCant_inic_Ensambladores()+"\n");
+    System.out.println("Cantidad Maxima de productores de controles:_"+this.LA.getCant_Max_PControles()+"\n");    
+    System.out.println("Cantidad Maxima de productores de consolas:_"+this.LA.getCant_Max_PConsolas()+"\n");
+    System.out.println("Cantidad Maxima de productores de paquetes:_"+this.LA.getCant_Max_PPaquetes()+"\n");
+    System.out.println("Cantidad Maxima de ensambladores:_"+this.LA.getCant_Max_Ensambladores()+"\n"); 
+    this.inicializar_prod_controles();
+    this.inicializar_prod_consolas();
+    this.inicializar_prod_paquetes();
+    this.inicializar_ensambladores();
+    this.cd.start();//inicio contador de dias de programa
+    this.C.start(); //inicio cromotrador
+    this.G.start(); //iniciar al gerente
+    this.producir();
+    this.ensamblar();
+   
+}
+
 public Almacen get_Almacen() {
         return this.A;
     }
-public Fabrica(String nombre, Interfaz I){// Para iniciar con los valores leidos de un archivo.
-}
 public void contratar_ensambladores(){
 
     if (this.nro_ensambladores<this.max_ensambladores){
@@ -296,6 +338,15 @@ private void inicializar_ensambladores(){
     }
 
 }
+public Cronometrador getC() {
+        return C;
+    }
+public Gerente getG() {
+        return G;
+    }
+public ContadorDias getCd() {
+        return cd;
+    }
 
 
 

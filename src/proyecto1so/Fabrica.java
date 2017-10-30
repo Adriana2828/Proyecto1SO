@@ -52,7 +52,7 @@ public Fabrica(Interfaz I){ //Inicia con los valores establecidos en el enunciad
     this.C=new Cronometrador(this.dia,this.A,this.I);
     this.G=new Gerente(this.dia,this.A,this.I);
     this.max_prod_controles=5;
-    this.nro_prod_controles=3; 
+    this.nro_prod_controles=3; //3
     this.nro_dias_pcontroles=1;
     this.max_prod_consolas=10;
     this.nro_prod_consolas=2;
@@ -60,7 +60,7 @@ public Fabrica(Interfaz I){ //Inicia con los valores establecidos en el enunciad
     this.max_prod_paquetes=3;
     this.nro_prod_paquetes=1;
     this.nro_dias_ppaquetes=1;
-    this.nro_ensambladores=1; 
+    this.nro_ensambladores=1;//1 
     this.max_ensambladores=4;
     this.nro_dias_ensamblaje=2;
     this.inicializar_prod_controles();
@@ -79,7 +79,7 @@ public Fabrica(String nombre, Interfaz I) throws IOException{// Para iniciar con
     this.I=I;
     this.dia=1000*LA.getTiempo_Seg_UnDia(); //cantidad de milisegundos en un dia.
     this.cd=new ContadorDias(this.dia,this.I);  
-    this.A=new Almacen(this.LA.getCap_Max_Alm_Controles(),this.LA.getCant_Max_PConsolas(),this.LA.getCant_Max_PPaquetes(),this.LA.getCant_dias_despachos());
+    this.A=new Almacen(this.LA.getCap_Max_Alm_Controles(),this.LA.getCap_Max_Alm_Consolas(),this.LA.getCap_Max_Alm_Paquetes(),this.LA.getCant_dias_despachos());
     this.C=new Cronometrador(this.dia,this.A,this.I);
     this.G=new Gerente(this.dia,this.A,this.I);
     this.max_prod_controles=this.LA.getCant_Max_PControles();
@@ -141,7 +141,7 @@ public void contratar_ensambladores(){
         }
     }
     
-   if (this.nro_ensambladores<this.max_ensambladores){
+    else if (this.nro_ensambladores<this.max_ensambladores){
          if(this.ensambladores[nro_ensambladores]==null){
             
         this.ensambladores[this.nro_ensambladores]=new Ensamblador(this.A,this.I,this.dia,this.nro_dias_ensamblaje);

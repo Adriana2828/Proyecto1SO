@@ -263,6 +263,7 @@ public class Interfaz extends JFrame implements ActionListener {
                 this.boton5.addActionListener(this);
                 this.boton6.addActionListener(this);
                 this.boton1.addActionListener(this);
+                
                 this.hire_Pcontroles.addActionListener(this);
                 this.fire_Pcontroles.addActionListener(this);
             

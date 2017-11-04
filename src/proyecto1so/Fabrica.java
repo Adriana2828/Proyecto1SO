@@ -1,7 +1,6 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * PROYECTO 1 SISTEMAS OPERATIVOS 1718-1
+ * INTEGRANTES: ADRIANA PARRA Y CARLOS DECASTRO
  */
 package proyecto1so;
 import java.io.IOException;
@@ -13,7 +12,7 @@ private LeerArchivo LA;
 private Cronometrador C;    
 private Gerente G;
 
-private int dia;                      //El numero de milisegundos que hay en un dia en el programa.   
+private int dia;                            //El numero de milisegundos que hay en un dia en el programa.   
 private Almacen A;                         //Almacen tiene todos los recursos compartidos.
 private Interfaz I;                        //Interfaz Grafica
 private ContadorDias cd;                   //Cuenta los dias transcurridos en el programa.
@@ -75,10 +74,22 @@ public Fabrica(Interfaz I){ //Inicia con los valores establecidos en el enunciad
    
 }
 public Fabrica(String nombre, Interfaz I) throws IOException{// Para iniciar con los valores leidos de un archivo.
+    int d;
     this.LA=new LeerArchivo(nombre);
     this.I=I;
     this.dia=1000*LA.getTiempo_Seg_UnDia(); //cantidad de milisegundos en un dia.
-    this.cd=new ContadorDias(this.dia,this.I);  
+    this.cd=new ContadorDias(this.dia,this.I);
+    //----------Validacion del nro de dias para el despacho colocada en el archivo de texto
+    d=this.LA.getTiempo_Seg_UnDia();
+    if (d<=0){
+      I.textarea3.setText("Valor para dias de despacho incorrecto");
+    }
+    else{
+        //utilizar el valor
+    }
+    
+    
+    //--------------------------------------------------------------------------
     this.A=new Almacen(this.LA.getCap_Max_Alm_Controles(),this.LA.getCap_Max_Alm_Consolas(),this.LA.getCap_Max_Alm_Paquetes(),this.LA.getCant_dias_despachos());
     this.C=new Cronometrador(this.dia,this.A,this.I);
     this.G=new Gerente(this.dia,this.A,this.I);
